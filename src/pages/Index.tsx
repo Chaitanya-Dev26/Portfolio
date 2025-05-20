@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import ProfileCard from '../components/ProfileCard';
-import EducationCard from '../components/EducationCard';
+import Timeline from '../components/Timeline'; // assuming you've added this
 import SkillsSection from '../components/SkillsSection';
 import ProjectsSection from '../components/ProjectsSection';
 import ContactSection from '../components/ContactSection';
@@ -10,6 +10,7 @@ import Footer from '../components/Footer';
 const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
+      {/* Navbar */}
       <Navbar />
 
       {/* Hero Section */}
@@ -20,28 +21,31 @@ const Index = () => {
       </section>
 
       {/* Education Section */}
-      <section id="education" className="py-12 px-4">
+      <section id="education" className="py-20 px-4 bg-[#0a0a0a]">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold mb-6 text-center">Education</h2>
-          <div className="max-w-2xl mx-auto">
-            <EducationCard
-              title="Bachelor of Technology in Computer Science"
-              institution="ITM Skills University"
-              year="2023 - 2027"
-              description="Pursuing foundational and advanced subjects in computer science with a focus on practical applications."
-              achievements={[
-                "Top 5 finalist at Mumbai Hacks 2025",
-                "Developed CampusKitchen using React and Tailwind CSS",
-              ]}
-            />
-          </div>
+          <h2 className="text-4xl font-bold mb-12 text-center text-white tracking-tight">
+            Education Journey
+          </h2>
+          <Timeline />
         </div>
       </section>
 
-      {/* Other Sections */}
-      <SkillsSection />
-      <ProjectsSection />
-      <ContactSection />
+      {/* Skills Section */}
+      <section id="skills" className="py-20 px-4">
+        <SkillsSection />
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-20 px-4 bg-[#111111]">
+        <ProjectsSection />
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 px-4">
+        <ContactSection />
+      </section>
+
+      {/* Footer */}
       <Footer />
     </div>
   );
