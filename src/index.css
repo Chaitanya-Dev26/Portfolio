@@ -1,0 +1,74 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 7%;
+
+    --secondary: 240 4% 16%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 5% 70%;
+
+    --accent: 240 4% 16%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 4% 20%;
+    --input: 240 4% 16%;
+    --ring: 240 5% 70%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply text-muted-foreground hover:text-foreground transition-colors duration-200;
+  }
+  
+  .social-icon {
+    @apply flex items-center justify-center w-10 h-10 bg-secondary rounded-md hover:bg-accent transition-colors duration-200;
+  }
+  
+  .tag {
+    @apply flex items-center gap-1.5 text-sm text-muted-foreground;
+  }
+  
+  .section-title {
+    @apply text-xl font-bold uppercase tracking-wider mb-6;
+  }
+  
+  .card {
+    @apply bg-card rounded-lg border border-border/50 shadow-lg shadow-black/40;
+  }
+}
