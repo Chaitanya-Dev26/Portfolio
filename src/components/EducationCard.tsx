@@ -1,5 +1,6 @@
 import React from "react";
 import Tilt from "react-parallax-tilt";
+import { FaUniversity } from "react-icons/fa";
 
 const EducationCard = ({ title, institution, year, description, achievements }: any) => {
   return (
@@ -17,10 +18,15 @@ const EducationCard = ({ title, institution, year, description, achievements }: 
         {/* Header */}
         <div className="flex justify-between items-center mb-2">
           <h3 className="text-xl font-semibold">{title}</h3>
-          <span className="text-sm bg-darkgray text-gray-300 border border-gray-600 px-3 py-1 rounded-full">{year}</span>
+          <span className="text-sm bg-darkgray text-gray-300 border border-gray-600 px-3 py-3 rounded-full">{year}</span>
         </div>
 
-        <p className="text-sm text-gray-400">{institution}</p>
+        {/* Institution with icon */}
+        <div className="flex items-center gap-2 text-sm text-gray-400">
+          <FaUniversity className="text-gray-400" />
+          <p>{institution}</p>
+        </div>
+
         <p className="mt-3 text-gray-300">{description}</p>
 
         {/* Achievements with animation */}

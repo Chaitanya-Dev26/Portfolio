@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="container">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="text-muted-foreground mb-4 md:mb-0">
-            &copy; {year} Arhaan Siddiquee. All rights reserved.
+            &copy; {year} Chaitanya Shirsat. All rights reserved.
           </div>
           
           <div className="flex space-x-6">

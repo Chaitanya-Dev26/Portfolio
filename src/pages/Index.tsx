@@ -2,10 +2,12 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import ProfileCard from '../components/ProfileCard';
 import Timeline from '../components/Timeline'; // assuming you've added this
-import SkillsSection from '../components/SkillsSection';
+import Message  from '../components/LearningSection';
 import ProjectsSection from '../components/ProjectsSection';
+import SkillsSection from '../components/SkillsSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
+import LearningSection from '../components/LearningSection';
 
 const Index = () => {
   return (
@@ -30,15 +32,21 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Skills Section */}
-      <section id="skills" className="py-20 px-4 ">
-        <SkillsSection />
+      {/* Learning Section */}
+      <section id="message" className="py-20 px-4 itm ">
+        <LearningSection />
       </section>
 
       {/* Projects Section */}
       <section id="projects" className="py-20 px-4 bg-[#111111]">
         <ProjectsSection />
       </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="py-20 px-4 ">
+        <SkillsSection />
+      </section>
+
 
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4">

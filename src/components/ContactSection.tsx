@@ -19,7 +19,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <div className="text-sm text-muted-foreground">Twitter</div>
-                  <div className="font-medium">@ArhaanSiddique0</div>
+                  <div className="font-medium">@ChaitanyaShirsat</div>
                 </div>
               </div>
               
@@ -34,7 +34,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <div className="text-sm text-muted-foreground">LinkedIn</div>
-                  <div className="font-medium">@arhaansiddiquee</div>
+                  <div className="font-medium">@ChaitanyaShirsat</div>
                 </div>
               </div>
               
@@ -48,7 +48,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <div className="text-sm text-muted-foreground">GitHub</div>
-                  <div className="font-medium">@Arhaan-Siddiquee</div>
+                  <div className="font-medium">@ChaitanyaShirsat</div>
                 </div>
               </div>
             </div>

@@ -8,7 +8,7 @@ const Navbar: React.FC = () => {
   const [hoverItem, setHoverItem] = useState<string | null>(null);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-background/90 backdrop-blur-smd border-b border-border/50 py-4">
+    <header className="fixed top-0 left-0 w-full z-50 bg-background/90 backdrop-blur-sm border-b border-border/50 py-4">
       <div className="max-w-7xl mx-auto px-6 py-1 flex justify-between items-center">
         <motion.a 
           href="#" 
