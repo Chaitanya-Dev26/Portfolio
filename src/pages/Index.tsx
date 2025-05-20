@@ -23,7 +23,7 @@ const Index = () => {
       </section>
 
       {/* Education Section */}
-      <section id="education" className="py-20 px-4 bg-[#0a0a0a]">
+      <section id="education" className="py-15 px-4 bg-[#0a0a0a]">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold mb-12 text-center text-white tracking-tight">
             Education Journey

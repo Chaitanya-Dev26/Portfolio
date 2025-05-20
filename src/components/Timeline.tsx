@@ -43,7 +43,7 @@ const educationData: EducationEntry[] = [
 
 const Timeline: React.FC = () => {
   return (
-    <div className="relative py-16">
+    <div className="relative py-8">
       {/* Center timeline line */}
       <div className="absolute left-1/2 top-0 h-full w-1 -translate-x-1/2 bg-gray-600" />
 

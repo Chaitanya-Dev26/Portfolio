@@ -18,14 +18,14 @@ const Tag = ({ label, color }: TagProps) => (
 const LearningSection = () => {
   return (
     <div
-      className="bg-black text-white p-6 rounded-2xl flex items-center gap-6 shadow-lg w-full min-h-[120px] border border-gray-800
+      className="group bg-black text-white p-6 rounded-2xl flex items-center gap-6 shadow-lg w-full min-h-[120px] border border-gray-800
                  transition-transform duration-500 ease-in-out
                  hover:scale-[1.03]
                  hover:shadow-[0_0_15px_rgba(128,128,128,0.3)]"
     >
-      {/* Note: min-h-[120px] remains unchanged */}
-      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#f0f0f0] to-[#bbbbbb] flex items-center justify-center">
-        <Zap size={28} className="text-black" />
+      {/* Icon container with group for hover animation */}
+      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#f0f0f0] to-[#bbbbbb] flex items-center justify-center">
+        <Zap size={28} className="text-black group-hover:animate-tilt transition-transform duration-300" />
       </div>
       <div>
         <p className="text-gray-400 text-md">Currently expanding my knowledge in</p>
@@ -46,7 +46,6 @@ const LearningSection = () => {
 export default function LearningSectionWrapper() {
   return (
     <div className="flex items-center justify-center px-4 py-1">
-      {/* ↓ reduced vertical padding from py-2 to py-1 */}
       <div className="w-full max-w-6xl">
         <LearningSection />
       </div>
