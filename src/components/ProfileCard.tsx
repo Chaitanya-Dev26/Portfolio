@@ -4,9 +4,10 @@ import { FiTwitter, FiLinkedin, FiGithub } from 'react-icons/fi';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card } from "@/components/ui/card";
 import { Typewriter } from 'react-simple-typewriter';
+import me from '../assets/me.png';
 
 // Placeholder for profile image 
-const profileImageUrl: string = '/placeholder.svg';
+const profileImageUrl = me;
 
 const ProfileCard: React.FC = () => {
   const [isHovering, setIsHovering] = useState(false);
@@ -18,18 +19,15 @@ const ProfileCard: React.FC = () => {
         <div className="flex flex-col md:flex-row gap-8">
           {/* Profile Image */}
           <div className="flex-shrink-0">
-            <div className="w-32 h-32 md:w-34 md:h-34 overflow-hidden bg-darkgray rounded-lg relative ml-[-8px]">
-              <div className="absolute -inset-1 bg-gradient-to-r from-black to-gray-900 rounded-lg blur opacity-30"></div>
-              <Avatar className="relative w-full h-full">
-                <AvatarImage 
-                  src={profileImageUrl} 
-                  alt="Chaitanya Shirsat" 
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                />
-                <AvatarFallback className="bg-secondary text-xl">CS</AvatarFallback>
-              </Avatar>
+            <div className="w-32 h-32 md:w-34 md:h-34 overflow-hidden rounded-xl relative ml-[-8px] bg-darkgray shadow-[0_0_25px_4px_rgba(0,150,255,0.2)]">
+              <img
+                src={profileImageUrl}
+                alt="Chaitanya Shirsat"
+                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 rounded-xl"
+              />
             </div>
           </div>
+
   
           {/* Profile Info */}
           <div className="flex-1 flex flex-col justify-between">
