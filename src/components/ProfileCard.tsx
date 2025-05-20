@@ -3,6 +3,7 @@ import { GraduationCap, Globe, Languages, Briefcase, Rocket, Star } from 'lucide
 import { FiTwitter, FiLinkedin, FiGithub } from 'react-icons/fi';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card } from "@/components/ui/card";
+import { Typewriter } from 'react-simple-typewriter';
 
 // Placeholder for profile image 
 const profileImageUrl: string = '/placeholder.svg';
@@ -12,12 +13,12 @@ const ProfileCard: React.FC = () => {
   const [hoverItem, setHoverItem] = useState<string | null>(null);
 
   return (
-    <Card className="max-w-6xl mx-auto p-8 min-h-[675px] bg-gradient-to-r from-black-200 to-gray-100 border border-border/30 shadow-lg">
+    <Card className="max-w-6xl mx-auto p-7 min-h-[675px] bg-gradient-to-r from-black-200 to-gray-100 border border-border/30 shadow-lg">
       <>
         <div className="flex flex-col md:flex-row gap-8">
           {/* Profile Image */}
           <div className="flex-shrink-0">
-            <div className="w-24 h-24 md:w-28 md:h-28 overflow-hidden bg-secondary rounded-lg relative ml-[-8px]">
+            <div className="w-32 h-32 md:w-34 md:h-34 overflow-hidden bg-secondary rounded-lg relative ml-[-8px]">
               <div className="absolute -inset-1 bg-gradient-to-r from-black to-gray-900 rounded-lg blur opacity-30"></div>
               <Avatar className="relative w-full h-full">
                 <AvatarImage 
@@ -42,46 +43,88 @@ const ProfileCard: React.FC = () => {
             </div>
   
             {/* Name */}
-            <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-14">
-              CHAITANYA SHIRSAT
+            <h1 className="text-3xl md:text-3xl font-bold tracking-tight mb-20 text-white">
+              <Typewriter
+                words={['CHAITANYA SHIRSAT']}
+                loop={1} // Run once only
+                cursor
+                cursorStyle="|"
+                typeSpeed={100}
+                deleteSpeed={0}  // No delete since it's one word
+              />
             </h1>
   
             {/* Tags */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-y-6 gap-x-8">
-              {/* Grid Items */}
-              <div className="flex items-center space-x-2">
-                <Globe className="h-5 w-5 text-muted-foreground" />
-                <span className="text-base">India</span>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-y-6 gap-x-8 mt-6 ml-3">
+              <div className="group cursor-pointer flex items-center space-x-3">
+                <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:translate-x-2">
+                  <div className="w-10 h-10 bg-black/50 backdrop-blur-md rounded-md flex items-center justify-center 
+                                  group-hover:bg-white transition-colors duration-300">
+                    <Globe className="h-4 w-4 text-white group-hover:text-black transition-colors duration-300" />
+                  </div>
+                  <span className="text-base text-gray-400 group-hover:text-white transition-colors duration-300">India</span>
+                </div>
               </div>
-              <div className="flex items-center space-x-2">
-                <Languages className="h-5 w-5 text-muted-foreground" />
-                <span className="text-base">English & Hindi</span>
+
+              <div className="group cursor-pointer flex items-center space-x-3">
+                <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:translate-x-2">
+                  <div className="w-10 h-10 bg-black/50 backdrop-blur-md rounded-md flex items-center justify-center 
+                                  group-hover:bg-white transition-colors duration-300">
+                    <Languages className="h-4 w-4 text-white group-hover:text-black transition-colors duration-300" />
+                  </div>
+                  <span className="text-base text-gray-400 group-hover:text-white transition-colors duration-300">English & Hindi</span>
+
+                </div>
               </div>
-              <div className="flex items-center space-x-2">
-                <Briefcase className="h-5 w-5 text-muted-foreground" />
-                <span className="text-base">Software Engineer</span>
+
+              <div className="group cursor-pointer flex items-center space-x-3">
+                <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:translate-x-2">
+                  <div className="w-10 h-10 bg-black/50 backdrop-blur-md rounded-md flex items-center justify-center 
+                                  group-hover:bg-white transition-colors duration-300">
+                    <Briefcase className="h-4 w-4 text-white group-hover:text-black transition-colors duration-300" />
+                  </div>
+                  <span className="text-base text-gray-400 group-hover:text-white transition-colors duration-300">Software Engineer</span>
+                </div>
               </div>
-              <div className="flex items-center space-x-2">
-                <Rocket className="h-5 w-5 text-muted-foreground" />
-                <span className="text-base">Intern</span>
+
+              <div className="group cursor-pointer flex items-center space-x-3">
+                <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:translate-x-2">
+                  <div className="w-10 h-10 bg-black/50 backdrop-blur-md rounded-md flex items-center justify-center 
+                                  group-hover:bg-white transition-colors duration-300">
+                    <Rocket className="h-4 w-4 text-white group-hover:text-black transition-colors duration-300" />
+                  </div>
+                  <span className="text-base text-gray-400 group-hover:text-white transition-colors duration-300">Student</span>
+                </div>
               </div>
-              <div className="flex items-center space-x-2">
-                <GraduationCap className="h-5 w-5 text-muted-foreground" />
-                <span className="text-base">SRM University</span>
+
+              <div className="group cursor-pointer flex items-center space-x-3">
+                <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:translate-x-2">
+                  <div className="w-10 h-10 bg-black/50 backdrop-blur-md rounded-md flex items-center justify-center 
+                                  group-hover:bg-white transition-colors duration-300">
+                    <GraduationCap className="h-4 w-4 text-white group-hover:text-black transition-colors duration-300" />
+                  </div>
+                  <span className="text-base text-gray-400 group-hover:text-white transition-colors duration-300">ITM Skills University</span>
+                </div>
               </div>
-              <div className="flex items-center space-x-2">
-                <Star className="h-5 w-5 text-muted-foreground" />
-                <span className="text-base">Good Boy</span>
+
+              <div className="group cursor-pointer flex items-center space-x-3">
+                <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:translate-x-2">
+                  <div className="w-10 h-10 bg-black/50 backdrop-blur-md rounded-md flex items-center justify-center 
+                                  group-hover:bg-white transition-colors duration-300">
+                    <Star className="h-4 w-4 text-white group-hover:text-black transition-colors duration-300" />
+                  </div>
+                  <span className="text-base text-gray-400 group-hover:text-white transition-colors duration-300 ">Good Boy</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
   
         {/* About Me and Connect Sections */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* About Me */}
           <section>
-            <h2 className="text-white text-2xl font-semibold mb-4 border-b border-gray-700 pb-2">ABOUT ME</h2>
+            <h2 className="text-white text-1xl font-semibold mb-2 pb-2">ABOUT ME</h2>
             <p className="text-gray-300 mb-4 leading-relaxed">
               I'm a passionate designer and developer with 6+ years of experience creating beautiful, functional interfaces. I specialize in React.js, Tailwind CSS, and responsive design principles that deliver exceptional user experiences.
             </p>
@@ -92,19 +135,19 @@ const ProfileCard: React.FC = () => {
   
           {/* Connect */}
           <section>
-            <h2 className="text-white text-2xl font-semibold mb-4 border-b border-gray-700 pb-2">CONNECT</h2>
+            <h2 className="text-white text-1xl font-semibold mb-2 pb-2">CONNECT</h2>
             <div className="space-y-4">
               {[
                 { platform: "Twitter", username: "@ChaitanyaShirsat", icon: <FiTwitter />, link: "https://twitter.com/ChaitanyaShirsat" },
-                { platform: "LinkedIn", username: "@chaitanyashirsat", icon: <FiLinkedin />, link: "https://linkedin.com/in/chaitanyashirsat" },
-                { platform: "Github", username: "@chaitanyashirsat", icon: <FiGithub />, link: "https://github.com/chaitanyashirsat" }
+                { platform: "LinkedIn", username: "@chaitanyashirsat", icon: <FiLinkedin />, link: "https://www.linkedin.com/in/chaitanyashirsat-dev/" },
+                { platform: "Github", username: "@chaitanyashirsat", icon: <FiGithub />, link: "https://github.com/Chaitanya-Dev26" }
               ].map((social, index) => (
                 <a
                   key={index}
                   href={social.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center bg-black bg-opacity-40 p-4 rounded-lg hover:bg-opacity-60 transition-all duration-300 border border-white border-opacity-0 hover:border-opacity-5"
+                  className="group flex items-center bg-black bg-opacity-40 p-4 rounded-lg hover:bg-opacity-60  duration-300 border border-white border-opacity-0 hover:border-opacity-5 transform group-hover:translate-x-2 transition-transform"
                   onMouseEnter={() => { setIsHovering(true); setHoverItem(social.platform) }}
                   onMouseLeave={() => { setIsHovering(false); setHoverItem(null) }}
                 >
