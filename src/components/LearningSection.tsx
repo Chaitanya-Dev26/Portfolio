@@ -18,7 +18,7 @@ const Tag = ({ label, color }: TagProps) => (
 const LearningSection = () => {
   return (
     <div
-      className="group bg-black text-white p-6 rounded-2xl flex items-center gap-6 shadow-lg w-full min-h-[120px] border border-gray-800
+      className="group bg-black text-white p-6 rounded-2xl flex items-center gap-6 shadow-lg w-full min-h-[120px] border border-gray
                  transition-transform duration-500 ease-in-out
                  hover:scale-[1.03]
                  hover:shadow-[0_0_15px_rgba(128,128,128,0.3)]"
@@ -30,13 +30,13 @@ const LearningSection = () => {
       <div>
         <p className="text-gray-400 text-md">Currently expanding my knowledge in</p>
         <h2 className="text-xl font-semibold mt-1">
-          Advanced Machine Learning, Cloud Architecture & Web3
+          Building expertise in Python and Machine Learning
         </h2>
         <div className="flex flex-wrap gap-2 mt-3">
-          <Tag label="TensorFlow" color="#28C76F" />
-          <Tag label="AWS Solutions" color="#0091ff" />
-          <Tag label="Smart Contracts" color="#a855f7" />
-          <Tag label="Blockchain" color="#facc15" />
+          <Tag label="Python" color="#3572A5" />
+          <Tag label="Machine Learning" color="#FFC107" />
+          <Tag label="NumPy" color="#9C27B0" />
+          <Tag label="Pandas" color="#4CAF50" />
         </div>
       </div>
     </div>
