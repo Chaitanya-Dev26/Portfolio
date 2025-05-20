@@ -19,13 +19,13 @@ const ProfileCard: React.FC = () => {
         <div className="flex flex-col md:flex-row gap-8">
           {/* Profile Image */}
           <div className="flex-shrink-0">
-            <div className="w-32 h-32 md:w-34 md:h-34 overflow-hidden rounded-xl relative ml-[-8px] bg-darkgray shadow-[0_0_25px_4px_rgba(0,150,255,0.2)]">
-              <img
-                src={profileImageUrl}
-                alt="Chaitanya Shirsat"
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 rounded-xl"
-              />
-            </div>
+          <div className="w-32 h-32 md:w-34 md:h-34 overflow-hidden rounded-xl relative ml-[-8px] bg-darkgray shadow-[0_0_25px_4px_rgba(0,150,255,0.2)]">
+            <img
+              src={profileImageUrl}
+              alt="Chaitanya Shirsat"
+              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 rounded-xl"
+            />
+          </div>
           </div>
 
   

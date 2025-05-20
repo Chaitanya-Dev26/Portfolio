@@ -70,6 +70,8 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
         available: "#10b981",
+        unavailable: "#ef4444",
+        active: "#3b82f6",
       },
       backgroundImage: {
         "secondary-gradient":
