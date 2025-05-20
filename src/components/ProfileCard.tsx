@@ -13,12 +13,12 @@ const ProfileCard: React.FC = () => {
   const [hoverItem, setHoverItem] = useState<string | null>(null);
 
   return (
-    <Card className="max-w-6xl mx-auto p-7 min-h-[675px] bg-gradient-to-r from-black-200 to-gray-100 border border-border/30 shadow-lg">
+    <Card className="max-w-6xl mx-auto p-7 min-h-[675px] bg-secondary-gradient border border-border/30 shadow-lg">
       <>
         <div className="flex flex-col md:flex-row gap-8">
           {/* Profile Image */}
           <div className="flex-shrink-0">
-            <div className="w-32 h-32 md:w-34 md:h-34 overflow-hidden bg-secondary rounded-lg relative ml-[-8px]">
+            <div className="w-32 h-32 md:w-34 md:h-34 overflow-hidden bg-darkgray rounded-lg relative ml-[-8px]">
               <div className="absolute -inset-1 bg-gradient-to-r from-black to-gray-900 rounded-lg blur opacity-30"></div>
               <Avatar className="relative w-full h-full">
                 <AvatarImage 

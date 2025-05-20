@@ -12,31 +12,32 @@ interface EducationEntry {
 const educationData: EducationEntry[] = [
   {
     title: "Matriculation",
-    institution: "D.A.V Public Schools",
+    institution: "Podar International School",
     year: "2019 – 2021",
     description: "Completed with Science stream.",
     achievements: [
-      "Represented school in zonal football tournaments.",
+      "Represented school in zonal-level athletics and participated in inter-school football tournaments, showcasing both academic and athletic balance.",
       "Scored 91% overall, consistently top 5 in class.",
     ],
   },
   {
     title: "Intermediate",
-    institution: "D.A.V Public School",
+    institution: "Podar International School",
     year: "2021 – 2023",
     description: "Specialized in Physics, Chemistry and Mathematics with high distinction.",
     achievements: [
-      "Represented school in zonal football tournaments.",
+      "Represented school in zonal football tournaments, Leading them to 1st place in the State-Level School Sports Meet.",
       "Scored 91% overall, consistently top 5 in class.",
-    ],
+    ]
+
   },
   {
     title: "Bachelor's Degree",
     institution: "ITM Skills University",
-    year: "2023 – Present",
+    year: "2024 – 2028",
     description:
-      "Computer Science and Engineering, specializing in AI & Machine Learning.",
-    achievements: ["Hackathon finalist 2025.", "Maintaining 8.5+ GPA."],
+      "Computer Science and Engineering.",
+    achievements: ["Hackathon finalist 2024.", "Maintaining 7.5+ GPA."],
   },
 ];
 

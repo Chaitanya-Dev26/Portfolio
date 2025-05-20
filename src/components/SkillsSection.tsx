@@ -13,7 +13,7 @@ const skills = [
 
 const SkillsSection = () => {
   return (
-    <section id="skills" className="py-16 bg-secondary/30">
+    <section id="skills" className="py-16 bg-secondary-gradient">
       <div className="container">
         <div className="max-w-4xl mx-auto">
           <h2 className="section-title">SKILLS</h2>

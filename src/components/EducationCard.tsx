@@ -12,12 +12,12 @@ const EducationCard = ({ title, institution, year, description, achievements }: 
       tiltMaxAngleY={10}
       className="transition-transform duration-300 ease-in-out transform hover:scale-[1.03]"
     >
-      <div className="w-[520px] bg-[#111] text-white rounded-2xl p-6 shadow-md border border-gray-800 
+      <div className="w-[520px] bg-secondary-gradient text-white rounded-2xl p-6 shadow-md border border-gray-800 
                       group transition-all duration-500 ease-in-out hover:shadow-lg overflow-hidden">
         {/* Header */}
         <div className="flex justify-between items-center mb-2">
           <h3 className="text-xl font-semibold">{title}</h3>
-          <span className="text-sm bg-gray-800 text-gray-300 px-3 py-1 rounded-full">{year}</span>
+          <span className="text-sm bg-darkgray text-gray-300 border border-gray-600 px-3 py-1 rounded-full">{year}</span>
         </div>
 
         <p className="text-sm text-gray-400">{institution}</p>

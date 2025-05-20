@@ -9,12 +9,12 @@ import Footer from '../components/Footer';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-[#0a0a0a] text-foreground">
       {/* Navbar */}
       <Navbar />
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center pt-20">
+      <section id="home" className="min-h-screen flex items-center justify-center pt-20 bg-[#0a0a0a]">
         <div className="container px-4 py-16">
           <ProfileCard />
         </div>
@@ -31,7 +31,7 @@ const Index = () => {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 px-4">
+      <section id="skills" className="py-20 px-4 ">
         <SkillsSection />
       </section>
 
