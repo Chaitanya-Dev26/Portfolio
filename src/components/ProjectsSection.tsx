@@ -96,28 +96,25 @@ const ProjectsSection = () => {
           <div className="flex flex-col gap-8">
             {/* Section Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-
-
-            <h2 className="section-title group flex items-center gap-3 text-2xl md:text-3xl lg:text-4xl font-bold relative overflow-hidden">
-              <motion.span
-                className="w-10 h-0.5 bg-foreground origin-left"
-                whileHover={{ scaleX: 1.5 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-              />
-              <motion.span
-                className="relative inline-block"
-                whileHover={{ y: -3, scale: 1.03 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-              >
-                FEATURED PROJECTS
+              <h2 className="section-title group flex items-center gap-3 text-2xl md:text-3xl lg:text-4xl font-bold relative overflow-hidden">
                 <motion.span
-                  className="absolute left-0 -bottom-1 w-full h-0.5 bg-foreground scale-x-0 origin-left"
-                  whileHover={{ scaleX: 1 }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  className="w-10 h-0.5 bg-foreground origin-left"
+                  whileHover={{ scaleX: 1.5 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
                 />
-              </motion.span>
-            </h2>
-
+                <motion.span
+                  className="relative inline-block"
+                  whileHover={{ y: -3, scale: 1.03 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                >
+                  FEATURED PROJECTS
+                  <motion.span
+                    className="absolute left-0 -bottom-1 w-full h-0.5 bg-foreground scale-x-0 origin-left"
+                    whileHover={{ scaleX: 1 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                  />
+                </motion.span>
+              </h2>
 
               {/* Category Filters */}
               <div className="flex flex-wrap gap-2">
@@ -139,125 +136,136 @@ const ProjectsSection = () => {
 
             {/* Projects Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {filteredProjects.map((project, index) => (
-                <div
-                  key={index}
-                  className="relative group"
-                  onMouseEnter={() => setHoveredCard(index)}
-                  onMouseLeave={() => {
-                    setHoveredCard(null);
-                    setMousePosition({ x: 0, y: 0 });
-                  }}
-                  onMouseMove={(e) => handleMouseMove(e, index)}
-                >
-                  <Card
-                    className={`border-border/50 bg-card h-full p-6 transition-all duration-300 bg-secondary-gradient ${
-                      hoveredCard === index ? 'scale-[1.05] shadow-xl' : 'shadow-md'
-                    }`}
-                    style={{
-                      transform: hoveredCard === index
-                        ? `perspective(1000px) rotateX(${-mousePosition.y / 12}deg) rotateY(${mousePosition.x / 12}deg)`
-                        : 'perspective(1000px) rotateX(0deg) rotateY(0deg)'
+              {filteredProjects.length === 0 ? (
+                <p className="col-span-full text-center text-muted-foreground text-lg">
+                  No projects found in "{activeFilter}" category.
+                </p>
+              ) : (
+                filteredProjects.map((project, index) => (
+                  <div
+                    key={index}
+                    className="relative group"
+                    onMouseEnter={() => setHoveredCard(index)}
+                    onMouseLeave={() => {
+                      setHoveredCard(null);
+                      setMousePosition({ x: 0, y: 0 });
                     }}
+                    onMouseMove={(e) => handleMouseMove(e, index)}
                   >
-                    {/* Project Image with overlay */}
-                    <div className="aspect-video w-full bg-black/70 relative overflow-hidden rounded-lg group transition-transform duration-500 ease-in-out transform-gpu">
-                      <div className="w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-110">
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300 will-change-transform filter grayscale transition-filter duration-700 ease-in-out group-hover:grayscale-0 group-hover:delay-200"
-                          style={{ willChange: 'transform' }}
-                        />
+                    <Card
+                      className={`border-border/50 bg-card h-full p-6 transition-all duration-300 bg-secondary-gradient ${
+                        hoveredCard === index ? 'scale-[1.05] shadow-xl' : 'shadow-md'
+                      }`}
+                      style={{
+                        transform: hoveredCard === index
+                          ? `perspective(1000px) rotateX(${-mousePosition.y / 12}deg) rotateY(${mousePosition.x / 12}deg)`
+                          : 'perspective(1000px) rotateX(0deg) rotateY(0deg)'
+                      }}
+                    >
+                      {/* Project Image with overlay */}
+                      <div className="aspect-video w-full bg-black/70 relative overflow-hidden rounded-lg group transition-transform duration-500 ease-in-out transform-gpu">
+                        <div className="w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-110">
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300 will-change-transform filter grayscale transition-filter duration-700 ease-in-out group-hover:grayscale-0 group-hover:delay-200"
+                            style={{ willChange: 'transform' }}
+                          />
+                        </div>
+
+                        {/* Status Badge */}
+                        <div className="absolute top-4 right-4">
+                          <Badge
+                            className={`text-xs ${
+                              project.status === "In Progress"
+                                ? "bg-destructive text-white hover:bg-destructive/80"
+                                : "bg-available text-white hover:bg-available/80"
+                            } flex items-center gap-1`}
+                          >
+                            {project.status === "In Progress" ? (
+                              <Loader className="h-3 w-3 animate-spin" />
+                            ) : (
+                              <Check className="h-3 w-3" />
+                            )}
+                            {project.status}
+                          </Badge>
+                        </div>
+
+                        {/* View Code Button */}
+                        <div
+                          className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
+                            hoveredCard === index ? 'opacity-100' : 'opacity-0'
+                          }`}
+                        >
+                          <Button
+                            className="bg-black/80 text-white px-5 py-2 rounded-lg shadow-md border-none hover:bg-black transition duration-300"
+                            asChild
+                          >
+                            <a
+                              href={project.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center justify-center gap-2"
+                            >
+                              <Github className="w-5 h-5" />
+                              View Code
+                            </a>
+                          </Button>
+                        </div>
                       </div>
 
-                      {/* Status Badge */}
-                      <div className="absolute top-4 right-4">
-                        <Badge
-                          className={`text-xs ${
-                            project.status === "In Progress"
-                              ? "bg-destructive text-white hover:bg-destructive/80"
-                              : "bg-available text-white hover:bg-available/80"
-                          } flex items-center gap-1`}
-                        >
-                          {project.status === "In Progress" ? (
-                            <Loader className="h-3 w-3 animate-spin" />
-                          ) : (
-                            <Check className="h-3 w-3" />
-                          )}
-                          {project.status}
+                      {/* Category Badge ABOVE heading */}
+                      <div className="mt-4 ml-0">
+                        <Badge variant="outline" className="text-xs">
+                          {project.category}
                         </Badge>
                       </div>
 
-                      {/* View Code Button */}
-                      <div
-                        className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
-                          hoveredCard === index ? 'opacity-100' : 'opacity-0'
-                        }`}
-                      >
-                        <Button
-                          className="bg-black/80 text-white px-5 py-2 rounded-lg shadow-md border-none hover:bg-black transition duration-300"
-                          asChild
-                        >
-                          <a
-                            href={project.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center justify-center gap-2"
-                          >
-                            <Github className="w-5 h-5" />
-                            View Code
-                          </a>
-                        </Button>
-                      </div>
-                    </div>
+                      {/* Card Header with no left padding/margin */}
+                      <CardHeader className="pl-0 pt-2">
+                        <CardTitle className="text-xl ml-1">{project.title}</CardTitle>
+                        <CardDescription className="text-muted-foreground ml-1">
+                          {project.description}
+                        </CardDescription>
+                      </CardHeader>
 
-                    {/* Category Badge ABOVE heading */}
-                    <div className="mt-4 ml-0">
-                      <Badge variant="outline" className="text-xs">
-                        {project.category}
-                      </Badge>
-                    </div>
-
-                    {/* Card Header with no left padding/margin */}
-                    <CardHeader className="pl-0 pt-2">
-                      <CardTitle className="text-xl ml-1">{project.title}</CardTitle>
-                      <CardDescription className="text-muted-foreground ml-1">
-                        {project.description}
-                      </CardDescription>
-                    </CardHeader>
-
-                    <CardContent className="pl-0 pt-2">
-                      {/* Tech Stack */}
-                      <div className="mb-4 ml-1">
-                        <div className="font-semibold uppercase tracking-wide text-xs mb-2 ml-0">TECH STACK</div>
-                        <div className="flex gap-2 flex-wrap ml-0">
-                          {project.tags.map((tech) => (
-                            <Badge key={tech} variant="outline" className="text-xs">{tech}</Badge>
-                          ))}
+                      <CardContent className="pl-0 pt-2">
+                        {/* Tech Stack */}
+                        <div className="mb-4 ml-1">
+                          <div className="font-semibold uppercase tracking-wide text-xs mb-2 ml-0">TECH STACK</div>
+                          <div className="flex gap-2 flex-wrap ml-0">
+                            {project.tags.map((tech) => (
+                              <Badge key={tech} variant="outline" className="text-xs">{tech}</Badge>
+                            ))}
+                          </div>
                         </div>
-                      </div>
 
-                      <Separator className="my-4 opacity-50" />
+                        <Separator className="my-4 opacity-50" />
 
-                      {/* Key Features */}
-                      <div className="mt-4 ml-0">
-                        <div className="font-semibold uppercase tracking-wide text-xs mb-2 text-muted-foreground ml-1">
-                          KEY FEATURES
+                        {/* Key Features */}
+                        <div className="mt-4 ml-0">
+                          <div className="font-semibold uppercase tracking-wide text-xs mb-2 text-muted-foreground ml-1">
+                            KEY FEATURES
+                          </div>
+                          <ul className="text-xs text-muted-foreground space-y-1 ml-1">
+                            {project.features.map((feature, i) => (
+                              <li key={i} className="flex items-start">
+                                <span className="mr-2">•</span>
+                                <span>{feature}</span>
+                              </li>
+                            ))}
+                          </ul>
                         </div>
-                        <ul className="text-xs text-muted-foreground space-y-1 ml-1">
-                          {project.features.map((feature, i) => (
-                            <li key={i} className="flex items-start">
-                              <span className="mr-2">•</span>
-                              <span>{feature}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              ))}
+                      </CardContent>
+                    </Card>
+                  </div>
+                ))
+              )}
+            </div>
+
+            {/* Showing projects count at the bottom */}
+            <div className="text-center mt-6 text-sm text-muted-foreground">
+              Showing {filteredProjects.length} of {projects.length} projects
             </div>
           </div>
         </div>
