@@ -1,6 +1,7 @@
 import React from "react";
 import Tilt from "react-parallax-tilt";
 import { FaUniversity } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const EducationCard = ({ title, institution, year, description, achievements }: any) => {
   return (

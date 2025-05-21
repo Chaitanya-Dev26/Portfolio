@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Github, Check, Loader } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { motion } from "framer-motion";
 
 // Project data with categories and images
 const projects = [
@@ -95,10 +96,28 @@ const ProjectsSection = () => {
           <div className="flex flex-col gap-8">
             {/* Section Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-              <h2 className="section-title flex items-center gap-3 text-2xl md:text-3xl lg:text-4xl font-bold">
-                <span className="w-10 h-0.5 bg-foreground"></span>
+
+
+            <h2 className="section-title group flex items-center gap-3 text-2xl md:text-3xl lg:text-4xl font-bold relative overflow-hidden">
+              <motion.span
+                className="w-10 h-0.5 bg-foreground origin-left"
+                whileHover={{ scaleX: 1.5 }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+              />
+              <motion.span
+                className="relative inline-block"
+                whileHover={{ y: -3, scale: 1.03 }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+              >
                 FEATURED PROJECTS
-              </h2>
+                <motion.span
+                  className="absolute left-0 -bottom-1 w-full h-0.5 bg-foreground scale-x-0 origin-left"
+                  whileHover={{ scaleX: 1 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                />
+              </motion.span>
+            </h2>
+
 
               {/* Category Filters */}
               <div className="flex flex-wrap gap-2">
