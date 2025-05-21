@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import ProfileCard from '../components/ProfileCard';
-import Timeline from '../components/Timeline'; // assuming you've added this
-import Message  from '../components/LearningSection';
+import Timeline from '../components/Timeline';
 import ProjectsSection from '../components/ProjectsSection';
 import SkillsSection from '../components/SkillsSection';
 import ContactSection from '../components/ContactSection';
@@ -10,19 +9,33 @@ import Footer from '../components/Footer';
 import LearningSection from '../components/LearningSection';
 
 const Index = () => {
+  const [dynamicData, setDynamicData] = useState<any>({});
+
+  useEffect(() => {
+    const fetchGitHubData = async () => {
+      try {
+        const response = await fetch('/api/languages/');
+        const data = await response.json();
+        console.log("Fetched GitHub Data:", data); // For testing
+        setDynamicData(data);
+      } catch (error) {
+        console.error("Error fetching GitHub data:", error);
+      }
+    };
+
+    fetchGitHubData();
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-foreground">
-      {/* Navbar */}
       <Navbar />
 
-      {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center pt-20 bg-[#0a0a0a]">
         <div className="container px-4 py-16">
           <ProfileCard />
         </div>
       </section>
 
-      {/* Education Section */}
       <section id="education" className="py-15 px-4 bg-[#0a0a0a]">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold mb-12 text-center text-white tracking-tight">
@@ -32,27 +45,22 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Learning Section */}
-      <section id="message" className="py-20 px-4 itm ">
+      <section id="message" className="py-20 px-4">
         <LearningSection />
       </section>
 
-      {/* Projects Section */}
       <section id="projects" className="py-15 px-4">
         <ProjectsSection />
       </section>
 
-      {/* Skills Section */}
-      <section id="skills" className="py-15 px-4 ">
-        <SkillsSection />
+      <section id="skills" className="py-15 px-4">
+        <SkillsSection dynamicData={dynamicData} />
       </section>
 
-      {/* Contact Section */}
       <section id="contact" className="py-20 px-4">
         <ContactSection />
       </section>
 
-      {/* Footer */}
       <Footer />
     </div>
   );

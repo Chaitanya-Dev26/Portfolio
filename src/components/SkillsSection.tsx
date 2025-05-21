@@ -1,23 +1,44 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { FaReact, FaDocker, FaNodeJs, FaFigma, FaCss3Alt, FaJsSquare } from "react-icons/fa";
-
-const skills = [
-  { tech: "React.js", percent: 90, icon: <FaReact className="text-cyan-400" /> },
-  { tech: "JavaScript", percent: 85, icon: <FaJsSquare className="text-yellow-400" /> },
-  { tech: "Docker", percent: 65, icon: <FaDocker className="text-blue-500" /> },
-  { tech: "TypeScript", percent: 70, icon: <FaCss3Alt className="text-blue-600" /> },
-  { tech: "Node.js", percent: 60, icon: <FaNodeJs className="text-green-500" /> },
-  { tech: "UI/UX Design", percent: 85, icon: <FaFigma className="text-pink-500" /> },
-  { tech: "Figma", percent: 95, icon: <FaFigma className="text-pink-500" /> },
-  { tech: "DevOps", percent: 50, icon: <FaDocker className="text-blue-500" /> },
+import {
+  FaReact,
+  FaDocker,
+  FaNodeJs,
+  FaFigma,
+  FaCss3Alt,
+  FaJsSquare,
+  FaPython,
+} from "react-icons/fa";
+const initialSkills = [
+  { tech: "React.js", percent: 20, icon: <FaReact className="text-cyan-400" /> },
+  { tech: "JavaScript", percent: 20, icon: <FaJsSquare className="text-yellow-400" /> },
+  { tech: "Python", percent: 20, icon: <FaPython className="text-yellow-200" /> },
+  { tech: "Docker", percent: 20, icon: <FaDocker className="text-blue-500" /> },
+  { tech: "TypeScript", percent: 20, icon: <FaCss3Alt className="text-blue-600" /> },
+  { tech: "Node.js", percent: 20, icon: <FaNodeJs className="text-green-500" /> },
+  { tech: "UI/UX Design", percent: 90, icon: <FaFigma className="text-pink-500" /> },
+  { tech: "Figma", percent: 75, icon: <FaFigma className="text-pink-500" /> },
+  { tech: "DevOps", percent: 20, icon: <FaDocker className="text-blue-500" /> },
 ];
 
-const SkillsExpertise = () => {
+const SkillsSection = ({ dynamicData }: { dynamicData: any }) => {
+  const [skills, setSkills] = useState(initialSkills);
   const controls = useAnimation();
   const [ref, inView] = useInView({ triggerOnce: true });
+
+  useEffect(() => {
+    const updatedSkills = initialSkills.map((skill) => {
+      const updatedPercent = dynamicData?.[skill.tech];
+      return {
+        ...skill,
+        percent: updatedPercent !== undefined ? updatedPercent : skill.percent,
+      };
+    });
+
+    setSkills(updatedSkills);
+  }, [dynamicData]);
 
   useEffect(() => {
     if (inView) {
@@ -26,11 +47,10 @@ const SkillsExpertise = () => {
         transition: { duration: 1, delay: i * 0.1 },
       }));
     }
-  }, [controls, inView]);
+  }, [inView, controls, skills]);
 
   return (
     <div className="max-w-6xl mx-auto px-4">
-      {/* Heading above the card */}
       <h2 className="section-title group flex items-center gap-3 text-2xl md:text-3xl lg:text-4xl font-bold relative overflow-hidden mb-12 -ml-5">
         <motion.span
           className="w-10 h-0.5 bg-foreground origin-left"
@@ -51,10 +71,8 @@ const SkillsExpertise = () => {
         </motion.span>
       </h2>
 
-      {/* Card container */}
       <Card className="max-w-6xl mx-auto p-7 min-h-[675px] bg-secondary-gradient border border-border/30 shadow-lg">
         <div className="text-white" ref={ref}>
-        {/* Technical Proficiency Heading with Vertical Line */}
           <div className="flex items-center mb-6">
             <div className="w-2 h-6 bg-white mr-4"></div>
             <h3 className="text-xl font-bold">Technical Proficiency</h3>
@@ -92,4 +110,4 @@ const SkillsExpertise = () => {
   );
 };
 
-export default SkillsExpertise;
+export default SkillsSection;
