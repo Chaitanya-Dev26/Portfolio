@@ -28,8 +28,8 @@ const LearningSection = () => {
         <Zap size={28} className="text-black group-hover:animate-tilt transition-transform duration-300" />
       </div>
       <div>
-        <p className="text-gray-400 text-md">Currently expanding my knowledge in</p>
-        <h2 className="text-xl font-semibold mt-1">
+        <p className="text-gray-400 text-md text-left">Currently expanding my knowledge in</p>
+        <h2 className="text-xl font-semibold mt-1 text-left">
           Building expertise in Python and Machine Learning
         </h2>
         <div className="flex flex-wrap gap-2 mt-3">

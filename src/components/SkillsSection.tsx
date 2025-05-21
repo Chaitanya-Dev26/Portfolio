@@ -79,7 +79,7 @@ const SkillsSection = ({ dynamicData }: { dynamicData: any }) => {
             <div className="w-2 h-6 bg-white mr-4"></div>
             <h3 className="text-xl font-bold">Technical Proficiency</h3>
           </div>
-          <p className="text-gray-400 text-sm mb-8">
+          <p className="text-gray-400 text-sm mb-8 text-left">
             Below are my proficiency levels in various technologies, based on my real-world experience, with the progress bars showing my expertise.
           </p>
 

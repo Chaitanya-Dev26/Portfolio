@@ -89,8 +89,7 @@ const ProjectsSection = () => {
   return (
     <section id="projects" className="py-16 relative bg-background/90">
       <div className="container max-w-[1200px] mx-auto px-4">
-        <div className="mx-auto">
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-8 text-left">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               <h2 className="section-title group flex items-center gap-3 text-2xl md:text-3xl lg:text-4xl font-bold relative overflow-hidden">
                 <motion.span
@@ -141,7 +140,7 @@ const ProjectsSection = () => {
                   onMouseMove={(e) => handleMouseMove(e, index)}
                 >
                   <Card
-                    className={`border-border/50 bg-card h-full p-6 transition-all duration-300 bg-secondary-gradient - ${
+                    className={`border-border/50 bg-card h-full p-6 transition-all duration-300 bg-secondary-gradient ${
                       hoveredCard === index ? 'scale-[1.05] shadow-xl' : 'shadow-md'
                     }`}
                     style={{
@@ -200,13 +199,13 @@ const ProjectsSection = () => {
                     </div>
                     <CardHeader className="pl-0 pt-2">
                       <CardTitle className="text-xl ml-1">{project.title}</CardTitle>
-                      <CardDescription className="text-muted-foreground ml-1">
+                      <CardDescription className="text-muted-foreground ml-1 text-left">
                         {project.description}
                       </CardDescription>
                     </CardHeader>
                     <CardContent className="pl-0 pt-2">
                       <div className="mb-4 ml-1">
-                        <div className="font-semibold uppercase tracking-wide text-xs mb-2 ml-0">TECH STACK</div>
+                        <div className="font-semibold uppercase tracking-wide text-xs mb-2 ml-0 text-left">TECH STACK</div>
                         <div className="flex gap-2 flex-wrap ml-0">
                           {project.tags.map((tech) => (
                             <Badge key={tech} variant="outline" className="text-xs">{tech}</Badge>
@@ -215,7 +214,7 @@ const ProjectsSection = () => {
                       </div>
                       <Separator className="my-4 opacity-50" />
                       <div className="mt-4 ml-0">
-                        <div className="font-semibold uppercase tracking-wide text-xs mb-2 text-muted-foreground ml-1">
+                        <div className="font-semibold uppercase tracking-wide text-xs mb-2 text-muted-foreground ml-1 text-left">
                           KEY FEATURES
                         </div>
                         <ul className="text-xs text-muted-foreground space-y-1 ml-1">
@@ -234,45 +233,46 @@ const ProjectsSection = () => {
             </div>
 
             <div className="flex justify-center mt-10">
-              <a
-                href="https://github.com/Chaitanya-Dev26/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative inline-block px-10 py-3 rounded-lg text-sm font-semibold text-white bg-gradient-to-br from-zinc-900 via-zinc-800 to-black shadow-md ring-1 ring-white/10 hover:ring-white/20 transition duration-300 overflow-hidden group"
-              >
-                <span className="flex items-center gap-2">
-                  VIEW ALL PROJECTS
+          <a
+            href="https://github.com/Chaitanya-Dev26/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative inline-block px-10 py-3 rounded-lg text-sm font-semibold text-white bg-gradient-to-br from-zinc-900 via-zinc-800 to-black shadow-md ring-1 ring-white/10 hover:ring-white/20 transition duration-300 overflow-hidden group"
+          >
+            <span className="flex items-center gap-2">
+              VIEW ALL PROJECTS
 
-                  {/* GitHub icon (appears on hover) */}
-                  <span className="inline-block opacity-0 transform translate-x-[-8px] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-                    <svg
-                      className="w-4 h-4 fill-white"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.207 11.387.6.11.793-.26.793-.577 0-.285-.01-1.04-.015-2.04-3.338.726-4.042-1.61-4.042-1.61-.546-1.385-1.333-1.753-1.333-1.753-1.09-.745.082-.73.082-.73 1.205.084 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.776.42-1.305.763-1.604-2.665-.3-5.467-1.332-5.467-5.93 0-1.31.47-2.38 1.236-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.323 3.3 1.23a11.5 11.5 0 0 1 3.003-.403c1.02.005 2.045.137 3.003.403 2.29-1.554 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.234 1.91 1.234 3.22 0 4.61-2.807 5.625-5.48 5.92.43.37.814 1.102.814 2.222 0 1.606-.015 2.9-.015 3.293 0 .32.192.694.8.576C20.565 21.796 24 17.296 24 12c0-6.63-5.37-12-12-12z" />
-                    </svg>
-                  </span>
+              {/* GitHub icon (appears on hover) */}
+              <span className="inline-block opacity-0 transform translate-x-[-8px] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+                <svg
+                  className="w-4 h-4 fill-white"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.207 11.387.6.11.793-.26.793-.577 0-.285-.01-1.04-.015-2.04-3.338.726-4.042-1.61-4.042-1.61-.546-1.385-1.333-1.753-1.333-1.753-1.09-.745.082-.73.082-.73 1.205.084 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.776.42-1.305.763-1.604-2.665-.3-5.467-1.332-5.467-5.93 0-1.31.47-2.38 1.236-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.323 3.3 1.23a11.5 11.5 0 0 1 3.003-.403c1.02.005 2.045.137 3.003.403 2.29-1.554 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.234 1.91 1.234 3.22 0 4.61-2.807 5.625-5.48 5.92.43.37.814 1.102.814 2.222 0 1.606-.015 2.9-.015 3.293 0 .32.192.694.8.576C20.565 21.796 24 17.296 24 12c0-6.63-5.37-12-12-12z" />
+                </svg>
+              </span>
 
-                  {/* Arrow (animated) */}
-                  <span className="inline-block animate-arrow-move">→</span>
-                </span>
+              {/* Arrow (animated) */}
+              <span className="inline-block animate-arrow-move">→</span>
+            </span>
 
-                {/* Shine effect */}
-                <span className="absolute inset-0">
-                  <span className="absolute left-[-75%] top-0 h-full w-[30%] bg-white opacity-10 blur-sm transform skew-x-[-20deg] animate-shine-reverse group-hover:animate-shine" />
-                </span>
-              </a>
-            </div>
+            {/* Shine effect */}
+            <span className="absolute inset-0">
+              <span className="absolute left-[-75%] top-0 h-full w-[30%] bg-white opacity-10 blur-sm transform skew-x-[-20deg] animate-shine-reverse group-hover:animate-shine" />
+            </span>
+          </a>
+        </div>
+
 
           {/* Showing projects count at the bottom */}
-            <div className="text-center text-sm text-muted-foreground mb-4">
+            <div className="text-center mt-1 text-sm text-muted-foreground">
               Showing {filteredProjects.length} of {projects.length} projects
             </div>
           </div>
         </div>
-      </div>
     </section>
   );
 };
+
 export default ProjectsSection;
