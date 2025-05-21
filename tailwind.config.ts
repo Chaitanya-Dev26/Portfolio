@@ -34,7 +34,7 @@ export default {
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "black", // fallback solid for components
+          DEFAULT: "black",
           start: "#121212",
           mid: "#1c1c1c",
           end: "#282828",
@@ -76,6 +76,8 @@ export default {
       backgroundImage: {
         "secondary-gradient":
           "linear-gradient(to right, #121212, #1c1c1c, #282828)",
+        "shine-gradient":
+          "linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%)",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -83,7 +85,7 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
-        "tilt": {
+        tilt: {
           "0%, 100%": { transform: "rotate(0deg)" },
           "50%": { transform: "rotate(20deg)" },
         },
@@ -109,6 +111,18 @@ export default {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0.7" },
         },
+        shine: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
+        "shine-reverse": {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+        "arrow-move": {
+          "0%, 100%": { transform: "translateX(0)" },
+          "50%": { transform: "translateX(4px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -116,8 +130,11 @@ export default {
         "fade-in": "fade-in 0.5s ease-out forwards",
         "pulse-slow": "pulse-slow 3s infinite ease-in-out",
         "tilt": "tilt 1s ease-in-out",
+        shine: "shine 0.8s linear",
+        "shine-reverse": "shine-reverse 0.8s linear infinite",
+        "arrow-move": "arrow-move 1s ease-in-out infinite",
       },
-    },
+    },    
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
