@@ -141,7 +141,7 @@ const ProjectsSection = () => {
                   onMouseMove={(e) => handleMouseMove(e, index)}
                 >
                   <Card
-                    className={`border-border/50 bg-card h-full p-6 transition-all duration-300 bg-secondary-gradient ${
+                    className={`border-border/50 bg-card h-full p-6 transition-all duration-300 bg-secondary-gradient - ${
                       hoveredCard === index ? 'scale-[1.05] shadow-xl' : 'shadow-md'
                     }`}
                     style={{
@@ -266,7 +266,7 @@ const ProjectsSection = () => {
             </div>
 
           {/* Showing projects count at the bottom */}
-            <div className="text-center text-sm text-muted-foreground">
+            <div className="text-center text-sm text-muted-foreground mb-4">
               Showing {filteredProjects.length} of {projects.length} projects
             </div>
           </div>

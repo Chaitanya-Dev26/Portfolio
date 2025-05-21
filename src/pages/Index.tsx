@@ -5,6 +5,7 @@ import ProfileCard from "../components/ProfileCard";
 import Timeline from "../components/Timeline";
 import ProjectsSection from "../components/ProjectsSection";
 import SkillsSection from "../components/SkillsSection";
+import Testimonials from "@/components/Testimonials";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
 import LearningSection from "../components/LearningSection";
@@ -56,6 +57,10 @@ const Index = () => {
 
       <section id="skills" className="py-15 px-4">
         <SkillsSection dynamicData={dynamicData} />
+      </section>
+
+      <section id="testimonials" className="py-15 px-4">
+        <Testimonials />
       </section>
 
       <section id="contact" className="py-20 px-4">

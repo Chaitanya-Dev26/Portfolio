@@ -73,7 +73,7 @@ const SkillsSection = ({ dynamicData }: { dynamicData: any }) => {
         </motion.span>
       </h2>
 
-      <Card className="max-w-6xl mx-auto p-7 min-h-[675px] bg-secondary-gradient border border-border/30 shadow-lg">
+      <Card className="max-w-6xl mx-auto p-7 min-h-[675px] bg-secondary-gradient border border-border/30 shadow-lg -ml-3">
         <div className="text-white" ref={ref}>
           <div className="flex items-center mb-6">
             <div className="w-2 h-6 bg-white mr-4"></div>
@@ -112,7 +112,7 @@ const SkillsSection = ({ dynamicData }: { dynamicData: any }) => {
       <div className="mt-12 text-center text-gray-400 italic">
         <FaQuoteRight className="text-3xl md:text-4xl text-gray-600 mx-auto mb-6 subtleRotate" />
         <p className="text-xl md:text-2xl text-white">"Don’t count the bugs, make the code count."</p>
-        <p className="text-lg md:text-lg mt-4 text-blue-400 font-medium">— Me</p>
+        <p className="text-lg md:text-lg mt-4 text-blue-400 font-medium mb-3">— Me</p>
       </div>
     </div>
   );
