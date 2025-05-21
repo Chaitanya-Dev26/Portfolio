@@ -19,29 +19,28 @@ const ProfileCard: React.FC = () => {
         <div className="flex flex-col md:flex-row gap-8">
           {/* Profile Image */}
           <div className="flex-shrink-0">
-          <div className="w-32 h-32 md:w-34 md:h-34 overflow-hidden rounded-xl relative ml-[-8px] bg-darkgray shadow-[0_0_25px_4px_rgba(0,150,255,0.2)]">
-            <img
-              src={profileImageUrl}
-              alt="Chaitanya Shirsat"
-              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 rounded-xl"
-            />
-          </div>
+            <div className="w-32 h-32 md:w-34 md:h-34 overflow-hidden rounded-xl relative ml-[-8px] bg-darkgray shadow-[0_0_25px_4px_rgba(0,150,255,0.2)]">
+              <img
+                src={profileImageUrl}
+                alt="Chaitanya Shirsat"
+                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 rounded-xl"
+              />
+            </div>
           </div>
 
-  
           {/* Profile Info */}
-          <div className="flex-1 flex flex-col justify-between">
+          <div className="flex-1 flex flex-col justify-between text-left">
             {/* Available status */}
             <div className="flex items-center gap-2 mb-3">
               <span className="relative flex h-3 w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-unavailable opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-unavailable"></span>
               </span>
-              <span className="text-sm font-medium uppercase tracking-wider text-unavailable">Website in develop</span>
+              <span className="text-sm font-medium uppercase tracking-wider text-unavailable">Website in development</span>
             </div>
-  
+
             {/* Name */}
-            <h1 className="text-3xl md:text-3xl font-bold tracking-tight mb-20 text-white">
+            <h1 className="text-3xl md:text-3xl font-bold tracking-tight mb-20 text-white text-left">
               <Typewriter
                 words={['CHAITANYA SHIRSAT']}
                 loop={1} // Run once only
@@ -51,16 +50,16 @@ const ProfileCard: React.FC = () => {
                 deleteSpeed={0}  // No delete since it's one word
               />
             </h1>
-  
+
             {/* Tags */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-y-6 gap-x-8 mt-6 ml-3">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-y-6 gap-x-8 mt-6 ml-3 justify-start">
               <div className="group cursor-pointer flex items-center space-x-3">
                 <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:translate-x-2">
                   <div className="w-10 h-10 bg-black/50 backdrop-blur-md rounded-md flex items-center justify-center 
                                   group-hover:bg-white transition-colors duration-300">
                     <Globe className="h-4 w-4 text-white group-hover:text-black transition-colors duration-300" />
                   </div>
-                  <span className="text-base text-gray-400 group-hover:text-white transition-colors duration-300">India</span>
+                  <span className="text-base text-gray-400 group-hover:text-white transition-colors duration-300 text-left">India</span>
                 </div>
               </div>
 
@@ -70,8 +69,7 @@ const ProfileCard: React.FC = () => {
                                   group-hover:bg-white transition-colors duration-300">
                     <Languages className="h-4 w-4 text-white group-hover:text-black transition-colors duration-300" />
                   </div>
-                  <span className="text-base text-gray-400 group-hover:text-white transition-colors duration-300">English & Hindi</span>
-
+                  <span className="text-base text-gray-400 group-hover:text-white transition-colors duration-300 text-left">English & Hindi</span>
                 </div>
               </div>
 
@@ -81,7 +79,7 @@ const ProfileCard: React.FC = () => {
                                   group-hover:bg-white transition-colors duration-300">
                     <Briefcase className="h-4 w-4 text-white group-hover:text-black transition-colors duration-300" />
                   </div>
-                  <span className="text-base text-gray-400 group-hover:text-white transition-colors duration-300">Software Engineer</span>
+                  <span className="text-base text-gray-400 group-hover:text-white transition-colors duration-300 text-left">Software Engineer</span>
                 </div>
               </div>
 
@@ -91,7 +89,7 @@ const ProfileCard: React.FC = () => {
                                   group-hover:bg-white transition-colors duration-300">
                     <Rocket className="h-4 w-4 text-white group-hover:text-black transition-colors duration-300" />
                   </div>
-                  <span className="text-base text-gray-400 group-hover:text-white transition-colors duration-300">Student</span>
+                  <span className="text-base text-gray-400 group-hover:text-white transition-colors duration-300 text-left">Student</span>
                 </div>
               </div>
 
@@ -101,7 +99,7 @@ const ProfileCard: React.FC = () => {
                                   group-hover:bg-white transition-colors duration-300">
                     <GraduationCap className="h-4 w-4 text-white group-hover:text-black transition-colors duration-300" />
                   </div>
-                  <span className="text-base text-gray-400 group-hover:text-white transition-colors duration-300">ITM Skills University</span>
+                  <span className="text-base text-gray-400 group-hover:text-white transition-colors duration-300 text-left">ITM Skills University</span>
                 </div>
               </div>
 
@@ -111,15 +109,15 @@ const ProfileCard: React.FC = () => {
                                   group-hover:bg-white transition-colors duration-300">
                     <Star className="h-4 w-4 text-white group-hover:text-black transition-colors duration-300" />
                   </div>
-                  <span className="text-base text-gray-400 group-hover:text-white transition-colors duration-300 ">Good Boy</span>
+                  <span className="text-base text-gray-400 group-hover:text-white transition-colors duration-300 text-left">Good Boy</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
-  
+
         {/* About Me and Connect Sections */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
           {/* About Me */}
           <section>
             <h2 className="text-white text-1xl font-semibold mb-2 pb-2">ABOUT ME</h2>
@@ -130,7 +128,7 @@ const ProfileCard: React.FC = () => {
               When I'm not coding, I enjoy exploring new technologies, watching anime, and experimenting with creative side projects. I believe in continuous learning and staying ahead of design trends to deliver innovative solutions to my clients.
             </p>
           </section>
-  
+
           {/* Connect */}
           <section>
             <h2 className="text-white text-1xl font-semibold mb-2 pb-2">CONNECT</h2>
@@ -145,14 +143,14 @@ const ProfileCard: React.FC = () => {
                   href={social.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center bg-black bg-opacity-40 p-4 rounded-lg hover:bg-opacity-60  duration-300 border border-white border-opacity-0 hover:border-opacity-5 transform group-hover:translate-x-2 transition-transform"
+                  className="group flex items-center bg-black bg-opacity-40 p-4 rounded-lg hover:bg-opacity-60 duration-300 border border-white border-opacity-0 hover:border-opacity-5 transform group-hover:translate-x-2 transition-transform"
                   onMouseEnter={() => { setIsHovering(true); setHoverItem(social.platform) }}
                   onMouseLeave={() => { setIsHovering(false); setHoverItem(null) }}
                 >
                   <div className="w-10 h-10 bg-white text-black rounded-lg flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
                     {social.icon}
                   </div>
-                  <div>
+                  <div className="text-left">
                     <div className="text-sm text-gray-400">{social.platform}</div>
                     <div className="font-semibold">{social.username}</div>
                   </div>
