@@ -12,7 +12,6 @@ import { Github, Check, Loader } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { motion } from "framer-motion";
 
-// Project data with categories and images
 const projects = [
   {
     title: "Integrated Healthcare Platform",
@@ -66,7 +65,6 @@ const projects = [
   }
 ];
 
-// Filter categories
 const categories = ["All", "Web", "Design", "AI"];
 
 const ProjectsSection = () => {
@@ -74,7 +72,6 @@ const ProjectsSection = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-  // Filter projects based on active category
   const filteredProjects = activeFilter === "All"
     ? projects
     : projects.filter(project => project.category === activeFilter);
@@ -94,7 +91,6 @@ const ProjectsSection = () => {
       <div className="container max-w-[1200px] mx-auto px-4">
         <div className="mx-auto">
           <div className="flex flex-col gap-8">
-            {/* Section Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               <h2 className="section-title group flex items-center gap-3 text-2xl md:text-3xl lg:text-4xl font-bold relative overflow-hidden">
                 <motion.span
@@ -115,8 +111,6 @@ const ProjectsSection = () => {
                   />
                 </motion.span>
               </h2>
-
-              {/* Category Filters */}
               <div className="flex flex-wrap gap-2">
                 {categories.map(category => (
                   <button
@@ -134,138 +128,116 @@ const ProjectsSection = () => {
               </div>
             </div>
 
-            {/* Projects Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {filteredProjects.length === 0 ? (
-                <p className="col-span-full text-center text-muted-foreground text-lg">
-                  No projects found in "{activeFilter}" category.
-                </p>
-              ) : (
-                filteredProjects.map((project, index) => (
-                  <div
-                    key={index}
-                    className="relative group"
-                    onMouseEnter={() => setHoveredCard(index)}
-                    onMouseLeave={() => {
-                      setHoveredCard(null);
-                      setMousePosition({ x: 0, y: 0 });
+              {filteredProjects.map((project, index) => (
+                <div
+                  key={index}
+                  className="relative group"
+                  onMouseEnter={() => setHoveredCard(index)}
+                  onMouseLeave={() => {
+                    setHoveredCard(null);
+                    setMousePosition({ x: 0, y: 0 });
+                  }}
+                  onMouseMove={(e) => handleMouseMove(e, index)}
+                >
+                  <Card
+                    className={`border-border/50 bg-card h-full p-6 transition-all duration-300 bg-secondary-gradient ${
+                      hoveredCard === index ? 'scale-[1.05] shadow-xl' : 'shadow-md'
+                    }`}
+                    style={{
+                      transform: hoveredCard === index
+                        ? `perspective(1000px) rotateX(${mousePosition.y / 30}deg) rotateY(${-mousePosition.x / 30}deg)`
+                        : 'perspective(1000px) rotateX(0deg) rotateY(0deg)'
                     }}
-                    onMouseMove={(e) => handleMouseMove(e, index)}
                   >
-                    <Card
-                      className={`border-border/50 bg-card h-full p-6 transition-all duration-300 bg-secondary-gradient ${
-                        hoveredCard === index ? 'scale-[1.05] shadow-xl' : 'shadow-md'
-                      }`}
-                      style={{
-                        transform: hoveredCard === index
-                          ? `perspective(1000px) rotateX(${-mousePosition.y / 12}deg) rotateY(${mousePosition.x / 12}deg)`
-                          : 'perspective(1000px) rotateX(0deg) rotateY(0deg)'
-                      }}
-                    >
-                      {/* Project Image with overlay */}
-                      <div className="aspect-video w-full bg-black/70 relative overflow-hidden rounded-lg group transition-transform duration-500 ease-in-out transform-gpu">
-                        <div className="w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-110">
-                          <img
-                            src={project.image}
-                            alt={project.title}
-                            className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300 will-change-transform filter grayscale transition-filter duration-700 ease-in-out group-hover:grayscale-0 group-hover:delay-200"
-                            style={{ willChange: 'transform' }}
-                          />
-                        </div>
-
-                        {/* Status Badge */}
-                        <div className="absolute top-4 right-4">
-                          <Badge
-                            className={`text-xs ${
-                              project.status === "In Progress"
-                                ? "bg-destructive text-white hover:bg-destructive/80"
-                                : "bg-available text-white hover:bg-available/80"
-                            } flex items-center gap-1`}
-                          >
-                            {project.status === "In Progress" ? (
-                              <Loader className="h-3 w-3 animate-spin" />
-                            ) : (
-                              <Check className="h-3 w-3" />
-                            )}
-                            {project.status}
-                          </Badge>
-                        </div>
-
-                        {/* View Code Button */}
-                        <div
-                          className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
-                            hoveredCard === index ? 'opacity-100' : 'opacity-0'
-                          }`}
-                        >
-                          <Button
-                            className="bg-black/80 text-white px-5 py-2 rounded-lg shadow-md border-none hover:bg-black transition duration-300"
-                            asChild
-                          >
-                            <a
-                              href={project.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex items-center justify-center gap-2"
-                            >
-                              <Github className="w-5 h-5" />
-                              View Code
-                            </a>
-                          </Button>
-                        </div>
+                    <div className="aspect-video w-full bg-black/70 relative overflow-hidden rounded-lg group transition-transform duration-500 ease-in-out transform-gpu">
+                      <div className="w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-110">
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300 will-change-transform filter grayscale transition-filter duration-700 ease-in-out group-hover:grayscale-0 group-hover:delay-200"
+                          style={{ willChange: 'transform' }}
+                        />
                       </div>
-
-                      {/* Category Badge ABOVE heading */}
-                      <div className="mt-4 ml-0">
-                        <Badge variant="outline" className="text-xs">
-                          {project.category}
+                      <div className="absolute top-4 right-4">
+                        <Badge
+                          className={`text-xs ${
+                            project.status === "In Progress"
+                              ? "bg-destructive text-white hover:bg-destructive/80"
+                              : "bg-available text-white hover:bg-available/80"
+                          } flex items-center gap-1`}
+                        >
+                          {project.status === "In Progress" ? (
+                            <Loader className="h-3 w-3 animate-spin" />
+                          ) : (
+                            <Check className="h-3 w-3" />
+                          )}
+                          {project.status}
                         </Badge>
                       </div>
+                      <motion.div
+                        initial={{ y: 80, opacity: 0 }}
+                        animate={hoveredCard === index ? { y: 0, opacity: 1 } : { y: 80, opacity: 0 }}
+                        transition={{ duration: 0.4, ease: "easeInOut" }}
+                        className="absolute inset-0 flex items-center justify-center"
+                      >
+                        <Button
+                          className="bg-black/70 text-white px-6 py-6 rounded-lg shadow-md border-none hover:bg-black transition duration-300 text-base"
+                          asChild
+                        >
+                          <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                            <Github className="w-7 h-7" />
+                            View Code
+                          </a>
+                        </Button>
+                      </motion.div>
 
-                      {/* Card Header with no left padding/margin */}
-                      <CardHeader className="pl-0 pt-2">
-                        <CardTitle className="text-xl ml-1">{project.title}</CardTitle>
-                        <CardDescription className="text-muted-foreground ml-1">
-                          {project.description}
-                        </CardDescription>
-                      </CardHeader>
-
-                      <CardContent className="pl-0 pt-2">
-                        {/* Tech Stack */}
-                        <div className="mb-4 ml-1">
-                          <div className="font-semibold uppercase tracking-wide text-xs mb-2 ml-0">TECH STACK</div>
-                          <div className="flex gap-2 flex-wrap ml-0">
-                            {project.tags.map((tech) => (
-                              <Badge key={tech} variant="outline" className="text-xs">{tech}</Badge>
-                            ))}
-                          </div>
+                    </div>
+                    <div className="mt-4 ml-0">
+                      <Badge variant="outline" className="text-xs">
+                        {project.category}
+                      </Badge>
+                    </div>
+                    <CardHeader className="pl-0 pt-2">
+                      <CardTitle className="text-xl ml-1">{project.title}</CardTitle>
+                      <CardDescription className="text-muted-foreground ml-1">
+                        {project.description}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="pl-0 pt-2">
+                      <div className="mb-4 ml-1">
+                        <div className="font-semibold uppercase tracking-wide text-xs mb-2 ml-0">TECH STACK</div>
+                        <div className="flex gap-2 flex-wrap ml-0">
+                          {project.tags.map((tech) => (
+                            <Badge key={tech} variant="outline" className="text-xs">{tech}</Badge>
+                          ))}
                         </div>
-
-                        <Separator className="my-4 opacity-50" />
-
-                        {/* Key Features */}
-                        <div className="mt-4 ml-0">
-                          <div className="font-semibold uppercase tracking-wide text-xs mb-2 text-muted-foreground ml-1">
-                            KEY FEATURES
-                          </div>
-                          <ul className="text-xs text-muted-foreground space-y-1 ml-1">
-                            {project.features.map((feature, i) => (
-                              <li key={i} className="flex items-start">
-                                <span className="mr-2">•</span>
-                                <span>{feature}</span>
-                              </li>
-                            ))}
-                          </ul>
+                      </div>
+                      <Separator className="my-4 opacity-50" />
+                      <div className="mt-4 ml-0">
+                        <div className="font-semibold uppercase tracking-wide text-xs mb-2 text-muted-foreground ml-1">
+                          KEY FEATURES
                         </div>
-                      </CardContent>
-                    </Card>
-                  </div>
-                ))
-              )}
+                        <ul className="text-xs text-muted-foreground space-y-1 ml-1">
+                          {project.features.map((feature, i) => (
+                            <li key={i} className="flex items-start">
+                              <span className="mr-2">•</span>
+                              <span>{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              ))}
             </div>
 
             <div className="flex justify-center mt-10">
               <a
-                href="#"
+                href="https://github.com/Chaitanya-Dev26/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="relative inline-block px-10 py-3 rounded-lg text-sm font-semibold text-white bg-gradient-to-br from-zinc-900 via-zinc-800 to-black shadow-md ring-1 ring-white/10 hover:ring-white/20 transition duration-300 overflow-hidden group"
               >
                 <span className="flex items-center gap-2">
@@ -286,15 +258,15 @@ const ProjectsSection = () => {
                   <span className="inline-block animate-arrow-move">→</span>
                 </span>
 
-                {/* Shine effect: reverse when idle, forward on hover */}
+                {/* Shine effect */}
                 <span className="absolute inset-0">
                   <span className="absolute left-[-75%] top-0 h-full w-[30%] bg-white opacity-10 blur-sm transform skew-x-[-20deg] animate-shine-reverse group-hover:animate-shine" />
                 </span>
               </a>
             </div>
 
-            {/* Showing projects count at the bottom */}
-            <div className="text-center mt-6 text-sm text-muted-foreground">
+          {/* Showing projects count at the bottom */}
+            <div className="text-center text-sm text-muted-foreground">
               Showing {filteredProjects.length} of {projects.length} projects
             </div>
           </div>
@@ -303,5 +275,4 @@ const ProjectsSection = () => {
     </section>
   );
 };
-
 export default ProjectsSection;

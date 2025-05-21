@@ -111,14 +111,6 @@ export default {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0.7" },
         },
-        shine: {
-          "0%": { transform: "translateX(-100%)" },
-          "100%": { transform: "translateX(100%)" },
-        },
-        "shine-reverse": {
-          "0%": { transform: "translateX(100%)" },
-          "100%": { transform: "translateX(-100%)" },
-        },
         "arrow-move": {
           "0%, 100%": { transform: "translateX(0)" },
           "50%": { transform: "translateX(4px)" },
@@ -130,10 +122,8 @@ export default {
         "fade-in": "fade-in 0.5s ease-out forwards",
         "pulse-slow": "pulse-slow 3s infinite ease-in-out",
         "tilt": "tilt 1s ease-in-out",
-        shine: "shine 0.8s linear",
-        "shine-reverse": "shine-reverse 0.8s linear infinite",
         "arrow-move": "arrow-move 1s ease-in-out infinite",
-      },
+      },      
     },    
   },
   plugins: [require("tailwindcss-animate")],
