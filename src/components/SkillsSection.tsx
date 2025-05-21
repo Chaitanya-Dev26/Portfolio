@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { FaQuoteRight } from "react-icons/fa";
+import '../App.css';
 import {
   FaReact,
   FaDocker,
@@ -109,7 +110,7 @@ const SkillsSection = ({ dynamicData }: { dynamicData: any }) => {
       </Card>
 
       <div className="mt-12 text-center text-gray-400 italic">
-        <FaQuoteRight className="text-3xl md:text-4xl text-gray-600 mx-auto mb-6" />
+        <FaQuoteRight className="text-3xl md:text-4xl text-gray-600 mx-auto mb-6 subtleRotate" />
         <p className="text-xl md:text-2xl text-white">"Don’t count the bugs, make the code count."</p>
         <p className="text-lg md:text-lg mt-4 text-blue-400 font-medium">— Me</p>
       </div>

@@ -31,13 +31,13 @@ const ProfileCard: React.FC = () => {
   
           {/* Profile Info */}
           <div className="flex-1 flex flex-col justify-between">
-            {/* status */}
+            {/* Available status */}
             <div className="flex items-center gap-2 mb-3">
               <span className="relative flex h-3 w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-unavailable opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-unavailable"></span>
               </span>
-              <span className="text-sm font-medium uppercase tracking-wider text-unavailable">Website in progreess</span>
+              <span className="text-sm font-medium uppercase tracking-wider text-unavailable">Website in develop</span>
             </div>
   
             {/* Name */}
