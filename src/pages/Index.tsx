@@ -38,7 +38,7 @@ const Index = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 px-4 bg-[#111111]">
+      <section id="projects" className="py-15 px-4">
         <ProjectsSection />
       </section>
 
