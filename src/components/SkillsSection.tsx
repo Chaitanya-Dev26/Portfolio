@@ -53,7 +53,7 @@ const SkillsSection = ({ dynamicData }: { dynamicData: any }) => {
 
   return (
     <div className="max-w-6xl mx-auto px-4">
-      <h2 className="section-title group flex items-center gap-3 text-2xl md:text-3xl lg:text-4xl font-bold relative overflow-hidden mb-12 -ml-5">
+      <h2 className="section-title group flex items-center gap-3 text-2xl md:text-3xl lg:text-4xl font-bold relative overflow-hidden mb-15 -ml-5">
         <motion.span
           className="w-10 h-0.5 bg-foreground origin-left"
           whileHover={{ scaleX: 1.5 }}
@@ -112,7 +112,7 @@ const SkillsSection = ({ dynamicData }: { dynamicData: any }) => {
       <div className="mt-12 text-center text-gray-400 italic">
         <FaQuoteRight className="text-3xl md:text-4xl text-gray-600 mx-auto mb-6 subtleRotate" />
         <p className="text-xl md:text-2xl text-white">"Don’t count the bugs, make the code count."</p>
-        <p className="text-lg md:text-lg mt-4 text-blue-400 font-medium mb-3">— Me</p>
+        <p className="text-lg md:text-lg mt-4 text-blue-400 font-medium mb-5">— Me</p>
       </div>
     </div>
   );
