@@ -1,22 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import Navbar from '../components/Navbar';
-import ProfileCard from '../components/ProfileCard';
-import Timeline from '../components/Timeline';
-import ProjectsSection from '../components/ProjectsSection';
-import SkillsSection from '../components/SkillsSection';
-import ContactSection from '../components/ContactSection';
-import Footer from '../components/Footer';
-import LearningSection from '../components/LearningSection';
+import React, { useState, useEffect } from "react";
+// import IntroAnimation from "../components/IntroAnimation"; // Adjust path if needed
+import Navbar from "../components/Navbar";
+import ProfileCard from "../components/ProfileCard";
+import Timeline from "../components/Timeline";
+import ProjectsSection from "../components/ProjectsSection";
+import SkillsSection from "../components/SkillsSection";
+import ContactSection from "../components/ContactSection";
+import Footer from "../components/Footer";
+import LearningSection from "../components/LearningSection";
 
 const Index = () => {
   const [dynamicData, setDynamicData] = useState<any>({});
+  const [showMainApp, setShowMainApp] = useState(false);
 
   useEffect(() => {
     const fetchGitHubData = async () => {
       try {
-        const response = await fetch('/api/languages/');
+        const response = await fetch("/api/languages/");
         const data = await response.json();
-        console.log("Fetched GitHub Data:", data); // For testing
         setDynamicData(data);
       } catch (error) {
         console.error("Error fetching GitHub data:", error);
