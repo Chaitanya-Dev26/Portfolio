@@ -38,7 +38,7 @@ const ContactSection = () => {
     >
       {/* Section Title */}
       <motion.div variants={itemVariants} className="flex items-center mb-14">
-        <h2 className="section-title group flex items-center gap-3 text-2xl md:text-3xl lg:text-4xl font-bold relative overflow-hidden mb-0 -ml-5">
+        <h2 className="section-title group tracking-tight flex items-center gap-3 text-2xl md:text-3xl lg:text-4xl font-bold relative overflow-hidden mb-0 -ml-5">
           <motion.span
             className="w-10 h-0.5 bg-foreground origin-left"
             whileHover={{ scaleX: 1.5 }}
@@ -74,7 +74,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground transition-colors duration-300">Email</p>
-                    <p className="font-medium group-hover:text-white transition-colors duration-300">siddiqueearhaan@gmail.com</p>
+                    <p className="font-medium group-hover:text-blue-400 transition-colors duration-300">chaitanyashirsat62@gmail.com</p>
                   </div>
                 </div>
               </div>
@@ -101,7 +101,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground transition-colors duration-300">Location</p>
-                    <p className="font-medium group-hover:text-white transition-colors duration-300">ITM College, Mumbai, India</p>
+                    <p className="font-medium group-hover:text-blue-400 transition-colors duration-300">ITM College, Mumbai, India</p>
                   </div>
                 </div>
               </div>

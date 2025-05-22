@@ -53,7 +53,7 @@ const SkillsSection = ({ dynamicData }: { dynamicData: any }) => {
 
   return (
     <div className="max-w-6xl mx-auto px-4">
-      <h2 className="section-title group flex items-center gap-3 text-2xl md:text-3xl lg:text-4xl font-bold relative overflow-hidden mb-15 -ml-5">
+      <h2 className="section-title group tracking-tight flex items-center gap-3 text-2xl md:text-3xl lg:text-4xl font-bold relative overflow-hidden mb-15 -ml-5">
         <motion.span
           className="w-10 h-0.5 bg-foreground origin-left"
           whileHover={{ scaleX: 1.5 }}

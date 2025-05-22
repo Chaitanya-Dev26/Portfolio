@@ -92,7 +92,7 @@ const ProjectsSection = () => {
       <div className="container max-w-[1200px] mx-auto px-4">
           <div className="flex flex-col gap-8 text-left">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-              <h2 className="section-title group flex items-center gap-3 text-2xl md:text-3xl lg:text-4xl font-bold relative overflow-hidden">
+              <h2 className="section-title group tracking-tight flex items-center gap-3 text-2xl md:text-3xl lg:text-4xl font-bold relative overflow-hidden">
                 <motion.span
                   className="w-10 h-0.5 bg-foreground origin-left"
                   whileHover={{ scaleX: 1.5 }}
