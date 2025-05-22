@@ -73,7 +73,7 @@ const SkillsSection = ({ dynamicData }: { dynamicData: any }) => {
         </motion.span>
       </h2>
 
-      <Card className="max-w-6xl mx-auto p-7 min-h-[675px] bg-secondary-gradient border border-border/30 shadow-lg -ml-3">
+      <Card className="max-w-6xl mx-auto p-7 min-h-[675px] bg-secondary-gradient border border-border/30 shadow-lg -ml-3 mt-14">
         <div className="text-white" ref={ref}>
           <div className="flex items-center mb-6">
             <div className="w-2 h-6 bg-white mr-4"></div>
