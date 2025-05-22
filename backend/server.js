@@ -8,7 +8,7 @@ const PORT = 3000;
 
 // Get from .env
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-const GITHUB_USERNAME = 'Chaitanya-Dev26'; // <-- Hardcoded username
+const GITHUB_USERNAME = 'Chaitanya-Dev26'; // Hardcoded username
 const GITHUB_API_URL = 'https://api.github.com';
 
 if (!GITHUB_TOKEN || !GITHUB_USERNAME) {
@@ -17,10 +17,25 @@ if (!GITHUB_TOKEN || !GITHUB_USERNAME) {
 }
 
 app.use(cors());
+app.use(express.json()); // Needed to parse JSON body
 
 // Health check route
 app.get('/', (req, res) => {
   res.send('API is running!');
+});
+
+// Simple contact form route
+app.post('/api/contact', (req, res) => {
+  const { name, email, message } = req.body;
+
+  if (!name || !email || !message) {
+    return res.status(400).json({ error: 'All fields are required.' });
+  }
+
+  // For now, just log the received data
+  console.log('Contact form received:', { name, email, message });
+
+  res.status(200).json({ message: 'Message received' });
 });
 
 // Fetch languages for one repo
@@ -63,16 +78,13 @@ app.get('/api/languages', async (req, res) => {
       }
     }
 
-    // ✅ Calculate total bytes and percentages
     const totalBytes = Object.values(aggregatedLanguageData).reduce((acc, val) => acc + val, 0);
     const languagePercentages = {};
     for (const [language, count] of Object.entries(aggregatedLanguageData)) {
       languagePercentages[language] = parseFloat(((count / totalBytes) * 100).toFixed(2));
     }
 
-    // ✅ Send percentages instead of raw count
     res.json(languagePercentages);
-
   } catch (error) {
     console.error('❌ Error fetching GitHub data:', error.message);
     res.status(500).json({ error: 'Failed to fetch GitHub language data' });
