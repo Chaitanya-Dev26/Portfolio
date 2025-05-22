@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Tilt from "react-parallax-tilt";
 import { Card } from "./ui/card";
+import poonamMamjpeg from "@/assets/poonam-mam.jpeg";
 
 // Motion variants
 const containerVariants = {
@@ -71,29 +72,27 @@ const Testimonials = () => {
               {/* Testimonial Content */}
               <div className="relative z-10">
                 <p className="text-gray-300 mb-6 leading-relaxed ">
-                Chaitanya demonstrated exceptional talent and dedication in 
-                both football and academics throughout their time at college. 
-                Their commitment to excellence was evident not only on the 
-                football field but also in the classroom, consistently maintaining
-                impressive grades. Their coach admired their discipline, teamwork,
-                and positive attitude, which inspired teammates and contributed 
-                greatly to the team’s success. Beyond athletic skills, he showed 
-                a strong work ethic and a balanced approach to studies and sports,
-                making them a standout student-athlete.
+                Chaitanya is one of the most dedicated and curious student I’ve 
+                had the pleasure of mentoring. His enthusiasm for learning both 
+                inside and outside the classroom is truly commendable. Whether 
+                it’s coding, participating in hackathons, or engaging in class 
+                discussions, he consistently shows creativity, a strong 
+                problem-solving mindset, and a genuine eagerness to grow. 
+                I’m confident he has a bright future ahead in the tech field.
                 </p>
 
                 {/* Author Info */}
                 <div className="flex items-center">
                   <div className="w-12 h-12 rounded-full overflow-hidden mr-4 ring-2 ring-white ring-opacity-10">
                     <img
-                      src="/path-to-niramaya-logo.png"
-                      alt="Arnav Madan"
+                      src={poonamMamjpeg}
+                      alt="Poonam Mam"
                       className="w-full h-full object-cover grayscale"
                     />
                   </div>
                   <div>
-                    <div className="font-medium text-white">Arnav Madan</div>
-                    <div className="text-sm text-gray-400">Football Coach, Podar International School</div>
+                    <div className="font-medium text-white">Poonam Khanvilkar</div>
+                    <div className="text-sm text-gray-400">Assistant Professor, ITM College</div>
                   </div>
                 </div>
               </div>

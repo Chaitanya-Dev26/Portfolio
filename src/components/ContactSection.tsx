@@ -69,7 +69,7 @@ const ContactSection = () => {
               {/* Email */}
               <div className="group cursor-pointer flex items-center space-x-4">
                 <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:translate-x-2">
-                  <div className="w-12 h-12 bg-black/50 backdrop-blur-md rounded-md flex items-center justify-center group-hover:bg-white transition-colors duration-300">
+                  <div className="w-10 h-10 bg-black/50 backdrop-blur-md rounded-md flex items-center justify-center group-hover:bg-white transition-colors duration-300">
                     <Mail size={20} className="text-white group-hover:text-black transition-colors duration-300" />
                   </div>
                   <div>

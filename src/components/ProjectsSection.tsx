@@ -49,7 +49,7 @@ const projects = [
     description: "A voice assistant project that lets you open apps and websites on macOS using voice commands.",
     tags: ["Python", "SpeechRecognition", "pyautogui"],
     link: "https://github.com/Chaitanya-Dev26/Jarvis-Voice-Assistant",
-    status: "In Progress",
+    status: "Completed",
     category: "AI",
     image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=800&q=80",
     features: ["Launch apps by voice (Chrome, Spotify, WhatsApp).", "Open websites (YouTube, Instagram) instantly.", "Utilizes macOS Spotlight (Cmd + Space) for fast, keyboard-free app launching.", "Say “Stop” or “Exit” to quit anytime."]
@@ -170,7 +170,7 @@ const ProjectsSection = () => {
                           {project.status === "In Progress" ? (
                             <Loader className="h-3 w-3 animate-spin" />
                           ) : (
-                            <Check className="h-3 w-3" />
+                            <Check className="h-3 w-3 animate-ping-once text-white" />
                           )}
                           {project.status}
                         </Badge>
