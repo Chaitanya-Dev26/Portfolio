@@ -1,7 +1,12 @@
+
 import React from 'react';
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
-import { Card } from "@/components/ui/card"; // <-- import Card component here
+import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Separator } from '@/components/ui/separator';
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 // Define animation variants
 const containerVariants = {
@@ -12,7 +17,7 @@ const containerVariants = {
     transition: {
       staggerChildren: 0.15,
       duration: 0.6,
-      ease: "easeOut",
+      ease: 'easeOut',
     },
   },
 };
@@ -37,101 +42,67 @@ const ContactSection = () => {
           <motion.span
             className="w-10 h-0.5 bg-foreground origin-left"
             whileHover={{ scaleX: 1.5 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
+            transition={{ duration: 0.4, ease: 'easeInOut' }}
           />
           <motion.span
             className="relative inline-block"
             whileHover={{ y: -3, scale: 1.03 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
+            transition={{ duration: 0.4, ease: 'easeInOut' }}
           >
             GET IN TOUCH
             <motion.span
               className="absolute left-0 -bottom-1 w-full h-0.5 bg-foreground scale-x-0 origin-left"
               whileHover={{ scaleX: 1 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
             />
           </motion.span>
         </h2>
       </motion.div>
 
-      <Card className="bg-secondary-gradient rounded-2xl p-6 md:p-5 text-left text-base md:text-md relative overflow-hidden min-h-[300px] -ml-4">
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-10">
-          {/* Social Links */}
+      <Card className="bg-secondary-gradient rounded-2xl p-6 md:p-7 text-left text-base md:text-md relative overflow-hidden min-h-[300px] -ml-4 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          {/* Contact Information */}
           <div>
-            <h2 className="section-title mb-6">Contact Information</h2>
+            <h3 className="text-2xl font-semibold mb-8">Contact Information</h3>
+
             <div className="space-y-6">
-              {/* Twitter */}
-              <div className="flex items-center gap-4">
-                <div className="social-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-twitter"
-                  >
-                    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-sm text-muted-foreground">Twitter</div>
-                  <div className="font-medium">@ChaitanyaShirsat</div>
+              {/* Email */}
+              <div className="group cursor-pointer flex items-center space-x-4">
+                <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:translate-x-2">
+                  <div className="w-12 h-12 bg-black/50 backdrop-blur-md rounded-md flex items-center justify-center group-hover:bg-white transition-colors duration-300">
+                    <Mail size={20} className="text-white group-hover:text-black transition-colors duration-300" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground transition-colors duration-300">Email</p>
+                    <p className="font-medium group-hover:text-white transition-colors duration-300">siddiqueearhaan@gmail.com</p>
+                  </div>
                 </div>
               </div>
 
-              {/* LinkedIn */}
-              <div className="flex items-center gap-4">
-                <div className="social-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-linkedin"
-                  >
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                    <rect width="4" height="12" x="2" y="9" />
-                    <circle cx="4" cy="4" r="2" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-sm text-muted-foreground">LinkedIn</div>
-                  <div className="font-medium">@ChaitanyaShirsat</div>
+
+              {/* Phone */}
+              <div className="group cursor-pointer flex items-center space-x-4">
+                <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:translate-x-2">
+                  <div className="w-12 h-12 bg-black/50 backdrop-blur-md rounded-md flex items-center justify-center group-hover:bg-white transition-colors duration-300">
+                    <Phone size={20} className="text-white group-hover:text-black transition-colors duration-300" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground transition-colors duration-300">Phone</p>
+                    <p className="font-medium group-hover:text-white transition-colors duration-300">+91 9876543210</p>
+                  </div>
                 </div>
               </div>
 
-              {/* GitHub */}
-              <div className="flex items-center gap-4">
-                <div className="social-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-github"
-                  >
-                    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                    <path d="M9 18c-4.51 2-5-2-7-2" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-sm text-muted-foreground">GitHub</div>
-                  <div className="font-medium">@ChaitanyaShirsat</div>
+              {/* Location */}
+              <div className="group cursor-pointer flex items-center space-x-4">
+                <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:translate-x-2">
+                  <div className="w-12 h-12 bg-black/50 backdrop-blur-md rounded-md flex items-center justify-center group-hover:bg-white transition-colors duration-300">
+                    <MapPin size={20} className="text-white group-hover:text-black transition-colors duration-300" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground transition-colors duration-300">Location</p>
+                    <p className="font-medium group-hover:text-white transition-colors duration-300">ITM College, Mumbai, India</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -139,42 +110,46 @@ const ContactSection = () => {
 
           {/* Contact Form */}
           <div>
-            <h2 className="section-title mb-6">Send Me a Message</h2>
-            <form className="space-y-4">
-              <div className="grid gap-4">
-                <div className="grid gap-2">
-                  <label htmlFor="name" className="text-sm font-medium">
-                    Name
-                  </label>
-                  <input
-                    id="name"
-                    className="flex h-10 w-full rounded-md border border-input bg-secondary px-3 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-                    placeholder="Your Name"
-                  />
-                </div>
-                <div className="grid gap-2">
-                  <label htmlFor="email" className="text-sm font-medium">
-                    Email
-                  </label>
-                  <input
-                    id="email"
-                    type="email"
-                    className="flex h-10 w-full rounded-md border border-input bg-secondary px-3 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-                    placeholder="Your Email"
-                  />
-                </div>
-                <div className="grid gap-2">
-                  <label htmlFor="message" className="text-sm font-medium">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    className="flex min-h-[128px] w-full rounded-md border border-input bg-secondary px-3 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-                    placeholder="Your Message"
-                  />
-                </div>
+            <h3 className="text-2xl font-semibold mb-5">Send Me a Message</h3>
+
+            <form className="space-y-5">
+              <div className="space-y-2">
+                <label htmlFor="name" className="text-sm font-medium text-gray-400">
+                  Your Name
+                </label>
+                <Input
+                  id="name"
+                  placeholder="What's your name?"
+                  className="bg-background/50 border border-border/30 h-12"
+                />
               </div>
-              <Button className="w-full">Send Message</Button>
+
+              <div className="space-y-2">
+                <label htmlFor="email" className="text-sm font-medium text-gray-400">
+                  Your Email
+                </label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="What's your email?"
+                  className="bg-background/50 border border-border/30 h-12"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="message" className="text-sm font-medium text-gray-400">
+                  Your Message
+                </label>
+                <Textarea
+                  id="message"
+                  placeholder="What would you like to say?"
+                  className="bg-background/50 border border-border/30 min-h-[120px]"
+                />
+              </div>
+
+              <Button className="w-full py-6 text-base font-medium uppercase">
+                Send Message
+              </Button>
             </form>
           </div>
         </div>
