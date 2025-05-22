@@ -58,7 +58,7 @@ const ContactSection = () => {
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-10">
           {/* Social Links */}
           <div>
-            <h2 className="section-title mb-6">CONNECT</h2>
+            <h2 className="section-title mb-6">Contact Information</h2>
             <div className="space-y-6">
               {/* Twitter */}
               <div className="flex items-center gap-4">
@@ -139,7 +139,7 @@ const ContactSection = () => {
 
           {/* Contact Form */}
           <div>
-            <h2 className="section-title mb-6">GET IN TOUCH</h2>
+            <h2 className="section-title mb-6">Send Me a Message</h2>
             <form className="space-y-4">
               <div className="grid gap-4">
                 <div className="grid gap-2">

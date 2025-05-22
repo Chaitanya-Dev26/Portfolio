@@ -11,31 +11,32 @@ import { Button } from "@/components/ui/button";
 import { Github, Check, Loader } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { motion } from "framer-motion";
+import campusKitchenGif from "@/assets/campuskitchen.gif";
 
 const projects = [
   {
     title: "Integrated Healthcare Platform",
     description: "A hackathon project to simplify outpatient care with doctor search, teleconsultation, lab bookings, and health profile management.",
-    tags: ["React", "Tailwind CSS", "Chart.js"],
-    link: "#",
-    status: "Completed",
-    category: "Web",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
-    features: ["Real-time analytics", "Inventory tracking", "Sales reporting", "User management"]
-  },
-  {
-    title: "Task Management App",
-    description: "A Kanban-style task management application with drag-and-drop functionality.",
-    tags: ["React", "TypeScript", "Redux"],
-    link: "#",
+    tags: ["React", "TypeScript", "Node.js"],
+    link: "https://github.com/Chaitanya-Dev26/integrated-healthcare-platform",
     status: "In Progress",
     category: "Web",
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
-    features: ["Drag-and-drop interface", "Task prioritization", "Deadline tracking", "Team collaboration"]
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
+    features: [" Easily find doctors based on specialty and location, and read patient reviews to make informed choices.", "Schedule healthcare professionals to visit you at home.", "Get medical advice remotely via secure video calls.", "Book tests online and receive digital results."]
   },
   {
-    title: "Personal Finance Tracker",
-    description: "Budget management application with expense tracking and visualization.",
+    title: "Campus Kitchen Website",
+    description: "Campus Kitchen is a website that helps manage menus and orders for schools, colleges, and events, making food service easier and more efficient.",
+    tags: ["React", "TypeScript", "Node.js"],
+    link: "https://github.com/Chaitanya-Dev26/Food-service",
+    status: "In Progress",
+    category: "Web",
+    image: campusKitchenGif,
+    features: ["Responsive & Intuitive UI: Designed for seamless user experience across devices, ensuring easy navigation for clients and staff.", "Catering Service Customization: Supports different event types with flexible options to customize meals according to specific dietary needs or preferences.", "Customer Engagement: Enables direct communication for feedback, special requests, or assistance.", "Supports multiple types of catering services (corporate, private parties, etc.)"]
+  },
+  {
+    title: "Emplty Card",
+    description: "Empty Card",
     tags: ["Next.js", "Prisma", "PostgreSQL"],
     link: "#",
     status: "Completed",
@@ -44,18 +45,18 @@ const projects = [
     features: ["Expense categorization", "Budget planning", "Financial insights", "Interactive reports"]
   },
   {
-    title: "AI-Powered Content Generator",
-    description: "Generate high-quality content with the help of machine learning algorithms.",
-    tags: ["Python", "TensorFlow", "NLP"],
-    link: "#",
+    title: "Jarvis Voice Assistant",
+    description: "A voice assistant project that lets you open apps and websites on macOS using voice commands.",
+    tags: ["Python", "SpeechRecognition", "pyautogui"],
+    link: "https://github.com/Chaitanya-Dev26/Jarvis-Voice-Assistant",
     status: "In Progress",
     category: "AI",
     image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=800&q=80",
-    features: ["Text generation", "Topic suggestions", "SEO optimization", "Multi-language support"]
+    features: ["Launch apps by voice (Chrome, Spotify, WhatsApp).", "Open websites (YouTube, Instagram) instantly.", "Utilizes macOS Spotlight (Cmd + Space) for fast, keyboard-free app launching.", "Say “Stop” or “Exit” to quit anytime."]
   },
   {
-    title: "UX Design System",
-    description: "Complete design system with reusable components for consistent user experiences.",
+    title: "Empty Card",
+    description: "Empty Card",
     tags: ["Figma", "Sketch", "UI Components"],
     link: "#",
     status: "Completed",
