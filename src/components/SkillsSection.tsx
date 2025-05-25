@@ -14,15 +14,15 @@ import {
   FaPython,
 } from "react-icons/fa";
 const initialSkills = [
-  { tech: "React.js", percent: 20, icon: <FaReact className="text-cyan-400" /> },
+  { tech: "React.js", percent: 74, icon: <FaReact className="text-cyan-400" /> },
   { tech: "JavaScript", percent: 20, icon: <FaJsSquare className="text-yellow-400" /> },
-  { tech: "Python", percent: 20, icon: <FaPython className="text-yellow-200" /> },
-  { tech: "Docker", percent: 20, icon: <FaDocker className="text-blue-500" /> },
+  { tech: "Python", percent: 56, icon: <FaPython className="text-yellow-200" /> },
+  { tech: "Docker", percent: 7, icon: <FaDocker className="text-blue-500" /> },
   { tech: "TypeScript", percent: 20, icon: <FaCss3Alt className="text-blue-600" /> },
-  { tech: "Node.js", percent: 20, icon: <FaNodeJs className="text-green-500" /> },
-  { tech: "UI/UX Design", percent: 90, icon: <FaFigma className="text-pink-500" /> },
-  { tech: "Figma", percent: 75, icon: <FaFigma className="text-pink-500" /> },
-  { tech: "DevOps", percent: 20, icon: <FaDocker className="text-blue-500" /> },
+  { tech: "Node.js", percent: 56, icon: <FaNodeJs className="text-green-500" /> },
+  { tech: "UI/UX Design", percent: 85, icon: <FaFigma className="text-pink-500" /> },
+  { tech: "Figma", percent: 95, icon: <FaFigma className="text-pink-500" /> },
+  { tech: "DevOps", percent: 5, icon: <FaDocker className="text-blue-500" /> },
 ];
 
 const SkillsSection = ({ dynamicData }: { dynamicData: any }) => {
@@ -111,7 +111,7 @@ const SkillsSection = ({ dynamicData }: { dynamicData: any }) => {
 
       <div className="mt-12 text-center text-gray-400 italic">
         <FaQuoteRight className="text-3xl md:text-4xl text-gray-600 mx-auto mb-6 subtleRotate" />
-        <p className="text-xl md:text-2xl text-white">"Don’t count the bugs, make the code count."</p>
+        <p className="text-xl md:text-2xl text-gray-400">"Don’t count the bugs, make the code count."</p>
         <p className="text-lg md:text-lg mt-4 text-blue-400 font-medium mb-5">— Me</p>
       </div>
     </div>
