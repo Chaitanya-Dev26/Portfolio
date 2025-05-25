@@ -43,7 +43,7 @@ const ContactSection = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:3000/api/contact', {
+      axios.post('http://localhost:3000/api/contact', {
         name: formData.name,
         email: formData.email,
         message: formData.message,
@@ -107,7 +107,7 @@ const ContactSection = () => {
 
               <div className="group cursor-pointer flex items-center space-x-4">
                 <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:translate-x-2">
-                  <div className="w-12 h-12 bg-black/50 backdrop-blur-md rounded-md flex items-center justify-center group-hover:bg-white transition-colors duration-300">
+                  <div className="w-10 h-10 bg-black/50 backdrop-blur-md rounded-md flex items-center justify-center group-hover:bg-white transition-colors duration-300">
                     <Phone size={20} className="text-white group-hover:text-black transition-colors duration-300" />
                   </div>
                   <div>
@@ -119,7 +119,7 @@ const ContactSection = () => {
 
               <div className="group cursor-pointer flex items-center space-x-4">
                 <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:translate-x-2">
-                  <div className="w-12 h-12 bg-black/50 backdrop-blur-md rounded-md flex items-center justify-center group-hover:bg-white transition-colors duration-300">
+                  <div className="w-10 h-10 bg-black/50 backdrop-blur-md rounded-md flex items-center justify-center group-hover:bg-white transition-colors duration-300">
                     <MapPin size={20} className="text-white group-hover:text-black transition-colors duration-300" />
                   </div>
                   <div>

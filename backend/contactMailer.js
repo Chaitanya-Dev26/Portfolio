@@ -1,32 +1,25 @@
-// Import required modules
 const nodemailer = require('nodemailer');
+require('dotenv').config();
 
-// Create a nodemailer transporter using environment variables
 const transporter = nodemailer.createTransport({
-  service: 'gmail', // or any other email provider you are using
+  service: 'gmail', 
   auth: {
-    user: process.env.EMAIL_USER, // Your email address from .env
-    pass: process.env.EMAIL_PASS, // Your email password from .env
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
   },
 });
 
-// Create a function to send the email
-const sendContactEmail = (req, res) => {
+async function sendMail(name, email, message) {
   const mailOptions = {
-    from: req.body.email, // Person's email from the contact form
-    to: process.env.EMAIL_USER, // Your email (the receiver)
-    subject: 'New Contact Form Message', // Subject line
-    text: `Name: ${req.body.name}\nEmail: ${req.body.email}\nMessage: ${req.body.message}`, // Body content
+    from: process.env.EMAIL_USER,  // Your Gmail authenticated email
+    to: process.env.EMAIL_RECEIVER, // Where you want to receive messages
+    subject: `New contact from ${name}`,
+    text: `Message: ${message}\n\nFrom: ${name} <${email}>`, // Include user info
+    replyTo: email,  // This sets the reply address to user’s email
   };
+  
 
-  // Send the email using nodemailer
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      return res.status(500).send('Error sending email: ' + error.message);
-    }
-    return res.status(200).send('Message sent: ' + info.response);
-  });
-};
+  await transporter.sendMail(mailOptions);
+}
 
-// Export the function
-module.exports = sendContactEmail;
+module.exports = { sendMail };
