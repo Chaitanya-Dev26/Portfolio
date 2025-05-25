@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -6,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import axios from 'axios';
+import { toast, Toaster } from 'sonner';
 
 // Animation variants
 const containerVariants = {
@@ -27,32 +30,33 @@ const itemVariants = {
 };
 
 const ContactSection = () => {
-  // Form state
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: '',
   });
 
-  // Handle input changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
-  // Handle form submit
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      axios.post('http://localhost:3000/api/contact', {
-        name: formData.name,
-        email: formData.email,
-        message: formData.message,
+      await axios.post('http://localhost:3000/api/contact', formData);
+
+      toast.success('Message sent successfully!', {
+        description: 'Thanks for reaching out!',
+        duration: 3000,
+        className: 'bg-green-500 text-white',
       });
-      alert('Message sent successfully!');
-      setFormData({ name: '', email: '', message: '' }); // Clear form after successful submit
+
+      setFormData({ name: '', email: '', message: '' });
     } catch (error) {
-      console.error('Error sending message:', error);
-      alert('Failed to send message. Please try again.');
+      toast.error('Failed to send message', {
+        description: 'Please try again later.',
+        className: 'bg-red-500 text-white',
+      });
     }
   };
 
@@ -64,6 +68,19 @@ const ContactSection = () => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
     >
+      {/* TOASTER
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          success: {
+            className: 'bg-green-500 text-white',
+          },
+          error: {
+            className: 'bg-red-500 text-white',
+          },
+        }}
+      /> */}
+
       {/* Section Title */}
       <motion.div variants={itemVariants} className="flex items-center mb-14">
         <h2 className="section-title group tracking-tight flex items-center gap-3 text-2xl md:text-3xl lg:text-4xl font-bold relative overflow-hidden mb-0 -ml-5">
@@ -93,6 +110,7 @@ const ContactSection = () => {
           <div>
             <h3 className="text-2xl font-semibold mb-8">Contact Information</h3>
             <div className="space-y-6">
+              {/* Email */}
               <div className="group cursor-pointer flex items-center space-x-4">
                 <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:translate-x-2">
                   <div className="w-10 h-10 bg-black/50 backdrop-blur-md rounded-md flex items-center justify-center group-hover:bg-white transition-colors duration-300">
@@ -104,7 +122,7 @@ const ContactSection = () => {
                   </div>
                 </div>
               </div>
-
+              {/* Phone */}
               <div className="group cursor-pointer flex items-center space-x-4">
                 <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:translate-x-2">
                   <div className="w-10 h-10 bg-black/50 backdrop-blur-md rounded-md flex items-center justify-center group-hover:bg-white transition-colors duration-300">
@@ -116,7 +134,7 @@ const ContactSection = () => {
                   </div>
                 </div>
               </div>
-
+              {/* Location */}
               <div className="group cursor-pointer flex items-center space-x-4">
                 <div className="flex items-center space-x-3 transition-transform duration-300 group-hover:translate-x-2">
                   <div className="w-10 h-10 bg-black/50 backdrop-blur-md rounded-md flex items-center justify-center group-hover:bg-white transition-colors duration-300">
