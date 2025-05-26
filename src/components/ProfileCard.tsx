@@ -44,11 +44,11 @@ const ProfileCard: React.FC = () => {
             <h1 className="text-3xl md:text-3xl font-bold tracking-tight mb-20 text-white">
               <Typewriter
                 words={['CHAITANYA SHIRSAT']}
-                loop={1} // Run once only
+                loop={1} 
                 cursor
                 cursorStyle="|"
                 typeSpeed={100}
-                deleteSpeed={0}  // No delete since it's one word
+                deleteSpeed={0}  
               />
             </h1>
   

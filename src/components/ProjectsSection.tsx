@@ -238,7 +238,7 @@ const ProjectsSection = () => {
             href="https://github.com/Chaitanya-Dev26/"
             target="_blank"
             rel="noopener noreferrer"
-            className="relative inline-block px-10 py-3 rounded-lg text-sm font-semibold text-white bg-gradient-to-br from-zinc-900 via-zinc-800 to-black shadow-md ring-1 ring-white/10 hover:ring-white/20 transition duration-300 overflow-hidden group"
+            className="relative inline-block px-6 py-3 rounded-lg text-sm font-semibold text-white bg-gradient-to-br from-zinc-900 via-zinc-800 to-black shadow-md ring-1 ring-white/10 hover:ring-white/20 transition duration-300 overflow-hidden group"
           >
             <span className="flex items-center gap-2">
               VIEW ALL PROJECTS

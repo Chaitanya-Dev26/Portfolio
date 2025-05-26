@@ -1,31 +1,34 @@
+// Required modules
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
 require('dotenv').config(); // Load .env variables
-const ContactMailer = require('./contactMailer'); // 👈 Import the contact mailer
+const ContactMailer = require('./contactMailer'); 
 
 const app = express();
 const PORT = 3000;
 
-// Get from .env
+// GitHub config get from env
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-const GITHUB_USERNAME = 'Chaitanya-Dev26'; // <-- Hardcoded username
+const GITHUB_USERNAME = 'Chaitanya-Dev26'; // username already given
 const GITHUB_API_URL = 'https://api.github.com';
 
+// Check for required GitHub credentials are correct
 if (!GITHUB_TOKEN || !GITHUB_USERNAME) {
   console.error("❌ GITHUB_TOKEN or GITHUB_USERNAME is not defined.");
   process.exit(1);
 }
 
+// Middleware
 app.use(cors());
-app.use(express.json()); // 👈 Needed to parse JSON body
+app.use(express.json()); // Needed to parse JSON body
 
-// Health check route
+// Health check route to verify the API is running
 app.get('/', (req, res) => {
   res.send('API is running!');
 });
 
-// 📩 Contact form route
+// Contact form submission endpoint
 app.post('/api/contact', async (req, res) => {
   const { name, email, message } = req.body;
 
@@ -42,7 +45,7 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
-// Fetch languages for one repo
+// 🔍 Helper function to fetch language breakdown for a single repo
 async function getLanguagesForRepo(repoOwner, repoName) {
   const url = `${GITHUB_API_URL}/repos/${repoOwner}/${repoName}/languages`;
   try {
@@ -52,10 +55,11 @@ async function getLanguagesForRepo(repoOwner, repoName) {
         'User-Agent': 'GitHub-Language-Aggregator'
       }
     });
-    return response.data;
+    return response.data; // Return language data
   } catch (error) {
+     // Handle API request errors
     console.error(`❌ Error fetching languages for ${repoName}:`, error.message);
-    return {};
+    return {}; // Return empty object if request fails
   }
 }
 
@@ -75,6 +79,7 @@ app.get('/api/languages', async (req, res) => {
     const repos = reposResponse.data;
     let aggregatedLanguageData = {};
 
+    // Loop through all repos and get language data
     for (let repo of repos) {
       const repoLanguages = await getLanguagesForRepo(GITHUB_USERNAME, repo.name);
       for (let [language, count] of Object.entries(repoLanguages)) {
@@ -82,7 +87,7 @@ app.get('/api/languages', async (req, res) => {
       }
     }
 
-    // Calculate total bytes and percentages
+    // Calculate total bytes and convert in %
     const totalBytes = Object.values(aggregatedLanguageData).reduce((acc, val) => acc + val, 0);
     const languagePercentages = {};
     for (const [language, count] of Object.entries(aggregatedLanguageData)) {
@@ -98,6 +103,7 @@ app.get('/api/languages', async (req, res) => {
   }
 });
 
+// Start server
 app.listen(PORT, () => {
   console.log(`✅ Server running at http://localhost:${PORT}`);
 });
