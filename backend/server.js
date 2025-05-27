@@ -10,7 +10,7 @@ const PORT = 3000;
 
 // GitHub config get from env
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-const GITHUB_USERNAME = 'Chaitanya-Dev26'; // username already given
+const GITHUB_USERNAME = 'Chaitanya-Dev26'; // username forcefuly added 
 const GITHUB_API_URL = 'https://api.github.com';
 
 // Check for required GitHub credentials are correct
@@ -45,7 +45,7 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
-// 🔍 Helper function to fetch language breakdown for a single repo
+// Helper function to fetch language breakdown for a single repo
 async function getLanguagesForRepo(repoOwner, repoName) {
   const url = `${GITHUB_API_URL}/repos/${repoOwner}/${repoName}/languages`;
   try {
