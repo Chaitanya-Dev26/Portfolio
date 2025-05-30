@@ -103,6 +103,15 @@ app.get('/api/languages', async (req, res) => {
   }
 });
 
+//  adding the tesing api endpoint
+app.get('/debug/env', (req, res) => {
+  res.json({
+    tokenLoaded: !!GITHUB_TOKEN,
+    username: GITHUB_USERNAME
+  });
+});
+
+
 // Start server
 app.listen(PORT, () => {
   console.log(`✅ Server running at http://localhost:${PORT}`);

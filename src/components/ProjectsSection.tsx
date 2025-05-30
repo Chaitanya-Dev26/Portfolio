@@ -35,7 +35,7 @@ const projects = [
     features: ["Responsive & Intuitive UI: Designed for seamless user experience across devices, ensuring easy navigation for clients and staff.", "Catering Service Customization: Supports different event types with flexible options to customize meals according to specific dietary needs or preferences.", "Customer Engagement: Enables direct communication for feedback, special requests, or assistance.", "Supports multiple types of catering services (corporate, private parties, etc.)"]
   },
   {
-    title: "Emplty Card",
+    title: "Weather App",
     description: "Empty Card",
     tags: ["Next.js", "Prisma", "PostgreSQL"],
     link: "#",
