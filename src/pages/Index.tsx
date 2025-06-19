@@ -21,7 +21,7 @@ const greetings = [
   "Hello" // English (last)
 ];
 
-function useTextScramble(text, duration = 1000) {
+function useTextScramble(text, duration = 300) {
   const [display, setDisplay] = useState(text);
   const frame = useRef(0);
   const queue = useRef([]);
