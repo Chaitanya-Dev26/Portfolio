@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -68,6 +69,22 @@
   .card {
     @apply bg-card rounded-lg border border-border/50 shadow-lg shadow-black/40;
   }
+}
+
+.scramble-text {
+  font-family: 'Montserrat', 'Inter', 'sans-serif';
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+}
+
+.dud {
+  color: #00cfff;
+  opacity: 0.5;
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
 

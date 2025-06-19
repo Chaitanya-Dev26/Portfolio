@@ -15,14 +15,14 @@ import campusKitchenGif from "@/assets/campuskitchen.gif";
 
 const projects = [
   {
-    title: "Integrated Healthcare Platform",
-    description: "A hackathon project to simplify outpatient care with doctor search, teleconsultation, lab bookings, and health profile management.",
-    tags: ["React", "TypeScript", "Node.js"],
-    link: "https://github.com/Chaitanya-Dev26/integrated-healthcare-platform",
+    title: "Redbubble Clone",
+    description: "Redbubble Clone is a web application that replicates the functionality and design of the popular online marketplace for digital art and design.",
+    tags: ["Html", "CSS", "JavaScript"],
+    link: "https://github.com/Chaitanya-Dev26/redbubble-clone",
     status: "In Progress",
     category: "Web",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
-    features: [" Easily find doctors based on specialty and location, and read patient reviews to make informed choices.", "Schedule healthcare professionals to visit you at home.", "Get medical advice remotely via secure video calls.", "Book tests online and receive digital results."]
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80",
+    features: ["Expense categorization", "Budget planning", "Financial insights", "Interactive reports"]
   },
   {
     title: "Campus Kitchen Website",
@@ -35,14 +35,14 @@ const projects = [
     features: ["Responsive & Intuitive UI: Designed for seamless user experience across devices, ensuring easy navigation for clients and staff.", "Catering Service Customization: Supports different event types with flexible options to customize meals according to specific dietary needs or preferences.", "Customer Engagement: Enables direct communication for feedback, special requests, or assistance.", "Supports multiple types of catering services (corporate, private parties, etc.)"]
   },
   {
-    title: "Weather App",
-    description: "Empty Card",
-    tags: ["Next.js", "Prisma", "PostgreSQL"],
-    link: "#",
+    title: "Integrated Healthcare Platform",
+    description: "A hackathon project to simplify outpatient care with doctor search, teleconsultation, lab bookings, and health profile management.",
+    tags: ["React", "TypeScript", "Node.js"],
+    link: "https://github.com/Chaitanya-Dev26/integrated-healthcare-platform",
     status: "Completed",
     category: "Web",
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80",
-    features: ["Expense categorization", "Budget planning", "Financial insights", "Interactive reports"]
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
+    features: [" Easily find doctors based on specialty and location, and read patient reviews to make informed choices.", "Schedule healthcare professionals to visit you at home.", "Get medical advice remotely via secure video calls.", "Book tests online and receive digital results."]
   },
   {
     title: "Jarvis Voice Assistant",
